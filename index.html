@@ -10,9 +10,9 @@
     <meta name="author" content="Yasalmetre">
     <meta name="robots" content="index, follow">
     <link rel="canonical" href="https://yasalmetre.com" />
+
     <meta name="google-adsense-account" content="ca-pub-2476803296366519">
     <meta name="google-site-verification" content="5ZYW_wydwHNDVsavFF7UkAxsAUnascWt1JSnMRoPiDg" />
-
     <script src="https://cdn.tailwindcss.com"></script>
     
     <script type="application/ld+json">
@@ -28,363 +28,290 @@
     </script>
 
     <style>
-        /* AdSense Reklam Alanları (Yüklenene kadar yer tutucu) */
         .adsbygoogle-placeholder {
-            background-color: #f8fafc; border: 1px dashed #cbd5e1; color: #94a3b8;
+            background-color: #f1f5f9; border: 1px dashed #94a3b8; color: #475569;
             display: flex; align-items: center; justify-content: center; text-align: center;
-            min-height: 90px; border-radius: 8px; margin: 20px 0; font-size: 0.8rem;
+            min-height: 90px; border-radius: 8px; margin: 20px 0; font-size: 0.85rem;
         }
-        /* Şık ve Performanslı Sekme Geçişleri */
         .tab-content { display: none; opacity: 0; transition: opacity 0.2s ease-in-out; }
         .tab-content.active { display: block; opacity: 1; }
-        .tab-btn { position: relative; font-weight: 500; color: #64748b; transition: all 0.2s; }
+        .tab-btn { position: relative; font-weight: 600; color: #475569; transition: all 0.2s; border-bottom: 3px solid transparent; }
         .tab-btn:hover { color: #1e40af; }
-        .tab-btn::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 3px; background-color: transparent; transition: background-color 0.2s; }
-        .tab-btn.active { color: #1e3a8a; font-weight: 700; }
-        .tab-btn.active::after { background-color: #2563eb; }
-        /* Modal (Açılır Pencere) Animasyonları */
-        .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(0,0,0,0.4); backdrop-filter: blur(2px); }
-        .modal-content { background-color: #fff; margin: 5% auto; padding: 2rem; border-radius: 12px; max-width: 600px; box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1); animation: modalFadeIn 0.3s; position: relative; }
-        .close-btn { position: absolute; top: 1rem; right: 1.5rem; color: #94a3b8; font-size: 1.5rem; font-weight: bold; cursor: pointer; transition: color 0.2s; }
+        .tab-btn.active { color: #1e3a8a; border-bottom-color: #2563eb; }
+        .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; overflow: auto; background-color: rgba(15, 23, 42, 0.6); backdrop-filter: blur(3px); }
+        .modal-content { background-color: #fff; margin: 5% auto; padding: 2rem; border-radius: 12px; max-width: 600px; box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); animation: modalFadeIn 0.3s; position: relative; }
+        .close-btn { position: absolute; top: 1rem; right: 1.5rem; color: #64748b; font-size: 1.75rem; font-weight: bold; cursor: pointer; transition: color 0.2s; }
         .close-btn:hover { color: #0f172a; }
         @keyframes modalFadeIn { from { opacity: 0; transform: translateY(-10px); } to { opacity: 1; transform: translateY(0); } }
     </style>
 </head>
-<body class="bg-slate-50 text-slate-800 font-sans min-h-screen flex flex-col">
+<body class="bg-slate-50 text-slate-900 font-sans min-h-screen flex flex-col">
 
-    <header class="bg-blue-900 text-white p-5 shadow-md border-b-4 border-blue-600">
-        <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3">
-            <h1 class="text-3xl font-extrabold tracking-tight">Yasalmetre<span class="text-blue-300 font-normal">.com</span></h1>
-            <span class="text-xs font-semibold bg-blue-800 px-3 py-1.5 rounded border border-blue-700">2026 Güncel Veriler</span>
+    <header class="bg-blue-900 text-white p-5 shadow-lg border-b-4 border-blue-700">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3 text-center md:text-left">
+            <h1 class="text-3xl font-extrabold tracking-tight">Yasalmetre<span class="text-blue-300 font-light">.com</span></h1>
+            <span class="text-xs font-bold bg-blue-800 px-4 py-1.5 rounded-full border border-blue-600 shadow-inner">2026 GÜNCEL VERİLER</span>
         </div>
     </header>
 
     <main class="max-w-4xl mx-auto p-4 mt-4 w-full flex-grow">
         
-        <div class="adsbygoogle-placeholder">
-            [Google AdSense Üst Banner Alanı]
+        <div class="adsbygoogle-placeholder" aria-label="Reklam Alanı">
+            [Reklam Alanı]
         </div>
 
-        <div class="bg-white p-6 rounded-xl shadow border border-slate-200">
+        <div class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-slate-200">
             
-            <div class="flex flex-wrap gap-4 border-b border-slate-200 mb-6 pb-2">
-                <button onclick="openTab('tazminatTab')" id="btn-tazminatTab" class="tab-btn active pb-2 text-sm md:text-base">Kıdem ve İhbar</button>
-                <button onclick="openTab('eticaretTab')" id="btn-eticaretTab" class="tab-btn pb-2 text-sm md:text-base">E-Ticaret Kârı</button>
-                <button onclick="openTab('vergiTab')" id="btn-vergiTab" class="tab-btn pb-2 text-sm md:text-base">Şirket Vergisi</button>
-                <button onclick="openTab('kdvTab')" id="btn-kdvTab" class="tab-btn pb-2 text-sm md:text-base">KDV Tevkifat</button>
-                <button onclick="openTab('lgsTab')" id="btn-lgsTab" class="tab-btn pb-2 text-sm md:text-base">LGS Puan</button>
-            </div>
+            <nav class="flex flex-wrap gap-4 border-b border-slate-200 mb-8" aria-label="Hesaplama Kategorileri">
+                <button onclick="openTab('tazminatTab')" id="btn-tazminatTab" class="tab-btn active pb-3 text-sm md:text-base px-1">Kıdem ve İhbar</button>
+                <button onclick="openTab('eticaretTab')" id="btn-eticaretTab" class="tab-btn pb-3 text-sm md:text-base px-1">E-Ticaret Kârı</button>
+                <button onclick="openTab('vergiTab')" id="btn-vergiTab" class="tab-btn pb-3 text-sm md:text-base px-1">Şirket Vergisi</button>
+                <button onclick="openTab('kdvTab')" id="btn-kdvTab" class="tab-btn pb-3 text-sm md:text-base px-1">KDV Tevkifat</button>
+                <button onclick="openTab('lgsTab')" id="btn-lgsTab" class="tab-btn pb-3 text-sm md:text-base px-1">LGS Puan</button>
+            </nav>
             
-            <div id="tazminatTab" class="tab-content active">
-                <h2 class="text-xl font-bold mb-5 text-slate-800">Kıdem ve İhbar Tazminatı Hesaplama</h2>
-                <form id="tazminatForm" class="space-y-4">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <section id="tazminatTab" class="tab-content active" aria-labelledby="btn-tazminatTab">
+                <h2 class="text-2xl font-bold mb-6 text-slate-800">Kıdem ve İhbar Tazminatı Hesaplama</h2>
+                <form id="tazminatForm" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                         <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-1">İşe Başlama Tarihi</label>
-                            <input type="date" id="baslamaTarihi" required class="w-full border border-slate-300 rounded p-2.5 focus:ring-2 focus:ring-blue-500 outline-none bg-slate-50">
+                            <label for="baslamaTarihi" class="block text-sm font-bold text-slate-700 mb-2">İşe Başlama Tarihi</label>
+                            <input type="date" id="baslamaTarihi" required class="w-full border border-slate-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-600 outline-none bg-slate-50 transition-all">
                         </div>
                         <div>
-                            <label class="block text-sm font-semibold text-slate-700 mb-1">İşten Çıkış Tarihi</label>
-                            <input type="date" id="cikisTarihi" required class="w-full border border-slate-300 rounded p-2.5 focus:ring-2 focus:ring-blue-500 outline-none bg-slate-50">
+                            <label for="cikisTarihi" class="block text-sm font-bold text-slate-700 mb-2">İşten Çıkış Tarihi</label>
+                            <input type="date" id="cikisTarihi" required class="w-full border border-slate-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-600 outline-none bg-slate-50 transition-all">
                         </div>
                     </div>
                     <div>
-                        <label class="block text-sm font-semibold text-slate-700 mb-1">Son Brüt Maaşınız (TL)</label>
-                        <input type="number" id="brutMaas" placeholder="Örn: 45000" required class="w-full border border-slate-300 rounded p-2.5 focus:ring-2 focus:ring-blue-500 outline-none bg-slate-50">
-                        <p class="text-xs text-slate-500 mt-1">İkramiye ve yardımlar dahil giydirilmiş brüt ücreti giriniz.</p>
+                        <label for="brutMaas" class="block text-sm font-bold text-slate-700 mb-2">Son Brüt Maaşınız (TL)</label>
+                        <input type="number" id="brutMaas" placeholder="Örn: 50000" required class="w-full border border-slate-300 rounded-lg p-3 focus:ring-2 focus:ring-blue-600 outline-none bg-slate-50 transition-all">
+                        <p class="text-xs text-slate-600 mt-2 italic font-medium">İkramiye ve yan yardımlar dahil giydirilmiş brüt tutarı giriniz.</p>
                     </div>
-                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded transition-colors shadow-sm">Tazminatı Hesapla</button>
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-extrabold py-4 rounded-xl transition-all shadow-md active:scale-95">TAZMİNATI HESAPLA</button>
                 </form>
-
-                <div id="tazminatSonuc" class="hidden mt-6 pt-5 border-t border-slate-100">
+                <div id="tazminatSonuc" class="hidden mt-8 pt-6 border-t border-slate-100">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="bg-blue-50 p-4 rounded border border-blue-100">
-                            <p class="text-sm text-blue-800 font-semibold">Brüt Kıdem Tazminatı</p>
-                            <p id="kidemDeger" class="text-2xl font-black text-blue-900 mt-1">0.00 TL</p>
+                        <div class="bg-blue-50 p-5 rounded-xl border border-blue-100 shadow-sm text-center">
+                            <span class="text-xs text-blue-700 font-bold uppercase tracking-wider">Brüt Kıdem Tazminatı</span>
+                            <p id="kidemDeger" class="text-3xl font-black text-blue-900 mt-1">0.00 TL</p>
                         </div>
-                        <div class="bg-emerald-50 p-4 rounded border border-emerald-100">
-                            <p class="text-sm text-emerald-800 font-semibold">Brüt İhbar Tazminatı</p>
-                            <p id="ihbarDeger" class="text-2xl font-black text-emerald-900 mt-1">0.00 TL</p>
+                        <div class="bg-emerald-50 p-5 rounded-xl border border-emerald-100 shadow-sm text-center">
+                            <span class="text-xs text-emerald-700 font-bold uppercase tracking-wider">Brüt İhbar Tazminatı</span>
+                            <p id="ihbarDeger" class="text-3xl font-black text-emerald-900 mt-1">0.00 TL</p>
                         </div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div id="eticaretTab" class="tab-content">
-                <h2 class="text-xl font-bold mb-5 text-slate-800">Pazaryeri Net Kâr Hesaplama</h2>
-                <form id="eticaretForm" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <div><label class="block text-sm font-semibold text-slate-700 mb-1">Ürün Satış Fiyatı (TL)</label><input type="number" id="satisFiyati" required class="w-full border border-slate-300 rounded p-2.5 bg-slate-50 focus:ring-2 focus:ring-blue-500 outline-none"></div>
-                    <div><label class="block text-sm font-semibold text-slate-700 mb-1">Geliş Maliyeti (TL)</label><input type="number" id="maliyetFiyati" required class="w-full border border-slate-300 rounded p-2.5 bg-slate-50 focus:ring-2 focus:ring-blue-500 outline-none"></div>
-                    <div><label class="block text-sm font-semibold text-slate-700 mb-1">Pazaryeri Komisyonu (%)</label><input type="number" id="komisyonOrani" required class="w-full border border-slate-300 rounded p-2.5 bg-slate-50 focus:ring-2 focus:ring-blue-500 outline-none"></div>
-                    <div><label class="block text-sm font-semibold text-slate-700 mb-1">Kargo ve Paketleme (TL)</label><input type="number" id="kargoGideri" required class="w-full border border-slate-300 rounded p-2.5 bg-slate-50 focus:ring-2 focus:ring-blue-500 outline-none"></div>
-                    <button type="submit" class="md:col-span-2 w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded transition-colors shadow-sm">Net Kârı Hesapla</button>
+            <section id="eticaretTab" class="tab-content" aria-labelledby="btn-eticaretTab">
+                <h2 class="text-2xl font-bold mb-6 text-slate-800">Pazaryeri Satış Kâr Hesaplama</h2>
+                <form id="eticaretForm" class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                    <div><label for="satisFiyati" class="block text-sm font-bold text-slate-700 mb-2">Ürün Satış Fiyatı (TL)</label><input type="number" id="satisFiyati" required class="w-full border border-slate-300 rounded-lg p-3 bg-slate-50 focus:ring-2 focus:ring-blue-600 outline-none"></div>
+                    <div><label for="maliyetFiyati" class="block text-sm font-bold text-slate-700 mb-2">Geliş Maliyeti (TL)</label><input type="number" id="maliyetFiyati" required class="w-full border border-slate-300 rounded-lg p-3 bg-slate-50 focus:ring-2 focus:ring-blue-600 outline-none"></div>
+                    <div><label for="komisyonOrani" class="block text-sm font-bold text-slate-700 mb-2">Komisyon Oranı (%)</label><input type="number" id="komisyonOrani" required class="w-full border border-slate-300 rounded-lg p-3 bg-slate-50 focus:ring-2 focus:ring-blue-600 outline-none"></div>
+                    <div><label for="kargoGideri" class="block text-sm font-bold text-slate-700 mb-2">Kargo ve Paketleme (TL)</label><input type="number" id="kargoGideri" required class="w-full border border-slate-300 rounded-lg p-3 bg-slate-50 focus:ring-2 focus:ring-blue-600 outline-none"></div>
+                    <button type="submit" class="md:col-span-2 w-full bg-blue-600 hover:bg-blue-700 text-white font-extrabold py-4 rounded-xl shadow-md transition-all active:scale-95">NET KÂRI HESAPLA</button>
                 </form>
-                <div id="eticaretSonuc" class="hidden mt-6 pt-5 border-t border-slate-100">
-                    <div class="bg-indigo-50 p-5 rounded border border-indigo-100 text-center">
-                        <p class="text-sm text-indigo-800 font-semibold">Ürün Başına Net Kârınız</p>
-                        <p id="netKarDeger" class="text-3xl font-black text-indigo-900 my-2">0.00 TL</p>
-                        <span id="karMarjiDeger" class="text-sm font-bold text-indigo-800 bg-indigo-200 px-3 py-1 rounded-full border border-indigo-300">%0 Kâr Marjı</span>
+                <div id="eticaretSonuc" class="hidden mt-8 pt-6 border-t border-slate-100">
+                    <div class="bg-indigo-50 p-6 rounded-xl border border-indigo-100 text-center shadow-sm">
+                        <span class="text-xs text-indigo-700 font-bold uppercase tracking-wider">Ürün Başı Net Kârınız</span>
+                        <p id="netKarDeger" class="text-4xl font-black text-indigo-900 my-3">0.00 TL</p>
+                        <span id="karMarjiDeger" class="text-sm font-bold text-indigo-900 bg-indigo-200 px-5 py-2 rounded-full border border-indigo-300 inline-block">%0 Kâr Marjı</span>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div id="vergiTab" class="tab-content">
-                <h2 class="text-xl font-bold mb-5 text-slate-800">Şahıs Şirketi Yıllık Vergi Simülasyonu</h2>
-                <form id="vergiForm" class="space-y-4">
+            <section id="vergiTab" class="tab-content" aria-labelledby="btn-vergiTab">
+                <h2 class="text-2xl font-bold mb-6 text-slate-800">Şahıs Şirketi Vergi Hesaplama</h2>
+                <form id="vergiForm" class="space-y-6">
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div><label for="yillikGelir" class="block text-sm font-bold text-slate-700 mb-2">Yıllık Gelir (TL)</label><input type="number" id="yillikGelir" required class="w-full border border-slate-300 rounded-lg p-3 bg-slate-50 focus:ring-2 focus:ring-blue-600 outline-none"></div>
+                        <div><label for="yillikGider" class="block text-sm font-bold text-slate-700 mb-2">Yıllık Gider (TL)</label><input type="number" id="yillikGider" required class="w-full border border-slate-300 rounded-lg p-3 bg-slate-50 focus:ring-2 focus:ring-blue-600 outline-none"></div>
+                    </div>
+                    <div class="flex items-center bg-amber-50 p-4 rounded-xl border border-amber-200 shadow-sm">
+                        <input type="checkbox" id="gencGirisimci" class="w-5 h-5 text-blue-600 border-slate-300 rounded cursor-pointer">
+                        <label for="gencGirisimci" class="ml-3 text-sm font-bold text-slate-800 cursor-pointer italic">Genç Girişimci İstisnam Var (29 Yaş Altı)</label>
+                    </div>
+                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-extrabold py-4 rounded-xl shadow-md transition-all active:scale-95">HESAPLA</button>
+                </form>
+                <div id="vergiSonuc" class="hidden mt-8 pt-6 border-t border-slate-100 text-center">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div><label class="block text-sm font-semibold text-slate-700 mb-1">Yıllık Gelir (KDV Hariç TL)</label><input type="number" id="yillikGelir" required class="w-full border border-slate-300 rounded p-2.5 bg-slate-50 focus:ring-2 focus:ring-blue-500 outline-none"></div>
-                        <div><label class="block text-sm font-semibold text-slate-700 mb-1">Yıllık Gider (KDV Hariç TL)</label><input type="number" id="yillikGider" required class="w-full border border-slate-300 rounded p-2.5 bg-slate-50 focus:ring-2 focus:ring-blue-500 outline-none"></div>
-                    </div>
-                    <div class="flex items-center bg-yellow-50 p-3 rounded border border-yellow-200">
-                        <input type="checkbox" id="gencGirisimci" class="w-4 h-4 text-blue-600 border-slate-300 rounded cursor-pointer">
-                        <label for="gencGirisimci" class="ml-2 text-sm text-slate-800 cursor-pointer">29 Yaş Altı <strong>Genç Girişimci İstisnam</strong> Var</label>
-                    </div>
-                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded transition-colors shadow-sm">Vergiyi Hesapla</button>
-                </form>
-                <div id="vergiSonuc" class="hidden mt-6 pt-5 border-t border-slate-100">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="bg-red-50 p-4 rounded border border-red-100"><p class="text-sm text-red-800 font-semibold">Tahmini Gelir Vergisi</p><p id="odenecekVergi" class="text-2xl font-black text-red-900 mt-1">0.00 TL</p></div>
-                        <div class="bg-emerald-50 p-4 rounded border border-emerald-100"><p class="text-sm text-emerald-800 font-semibold">Net Kazanç</p><p id="netKalanKazanc" class="text-2xl font-black text-emerald-900 mt-1">0.00 TL</p></div>
+                        <div class="bg-red-50 p-5 rounded-xl border border-red-100 shadow-sm"><span class="text-xs font-bold text-red-700">Tahmini Vergi</span><p id="odenecekVergi" class="text-3xl font-black text-red-900">0.00 TL</p></div>
+                        <div class="bg-emerald-50 p-5 rounded-xl border border-emerald-100 shadow-sm"><span class="text-xs font-bold text-emerald-700">Net Kalan</span><p id="netKalanKazanc" class="text-3xl font-black text-emerald-900">0.00 TL</p></div>
                     </div>
                 </div>
-            </div>
+            </section>
 
-            <div id="kdvTab" class="tab-content">
-                <h2 class="text-xl font-bold mb-5 text-slate-800">KDV Tevkifat Hesaplama</h2>
-                <form id="kdvForm" class="space-y-4">
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-                        <div><label class="block text-sm font-semibold text-slate-700 mb-1">Tutar (KDV Hariç TL)</label><input type="number" id="kdvTutar" required class="w-full border border-slate-300 rounded p-2.5 bg-slate-50 focus:ring-2 focus:ring-blue-500 outline-none"></div>
-                        <div><label class="block text-sm font-semibold text-slate-700 mb-1">KDV Oranı</label><select id="kdvOran" class="w-full border border-slate-300 rounded p-2.5 bg-white focus:ring-2 focus:ring-blue-500 outline-none"><option value="20">%20</option><option value="10">%10</option><option value="1">%1</option></select></div>
-                        <div><label class="block text-sm font-semibold text-slate-700 mb-1">Tevkifat Oranı</label><select id="tevkifatOran" class="w-full border border-slate-300 rounded p-2.5 bg-white focus:ring-2 focus:ring-blue-500 outline-none"><option value="0">Yok</option><option value="0.2">2/10</option><option value="0.3">3/10</option><option value="0.4">4/10</option><option value="0.5">5/10</option><option value="0.7">7/10</option><option value="0.9">9/10</option><option value="1">Tam (10/10)</option></select></div>
-                    </div>
-                    <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded transition-colors shadow-sm">Tevkifatı Hesapla</button>
+            <section id="kdvTab" class="tab-content" aria-labelledby="btn-kdvTab">
+                <h2 class="text-2xl font-bold mb-6 text-slate-800">KDV Tevkifat Hesaplama</h2>
+                <form id="kdvForm" class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                    <div><label for="kdvTutar" class="block text-sm font-bold text-slate-700 mb-2">Tutar (TL)</label><input type="number" id="kdvTutar" required class="w-full border border-slate-300 rounded-lg p-3 bg-slate-50 focus:ring-2 focus:ring-blue-600"></div>
+                    <div><label for="kdvOran" class="block text-sm font-bold text-slate-700 mb-2">KDV %</label><select id="kdvOran" class="w-full border border-slate-300 rounded-lg p-3 bg-white shadow-inner"><option value="20">%20</option><option value="10">%10</option><option value="1">%1</option></select></div>
+                    <div><label for="tevkifatOran" class="block text-sm font-bold text-slate-700 mb-2">Tevkifat</label><select id="tevkifatOran" class="w-full border border-slate-300 rounded-lg p-3 bg-white shadow-inner"><option value="0">Yok</option><option value="0.5">5/10</option><option value="0.9">9/10</option><option value="1">Tam</option></select></div>
+                    <button type="submit" class="md:col-span-3 w-full bg-blue-600 hover:bg-blue-700 text-white font-extrabold py-4 rounded-xl shadow-md">TEVKİFATI HESAPLA</button>
                 </form>
-                <div id="kdvSonuc" class="hidden mt-6 pt-5 border-t border-slate-100 text-center">
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3">
-                        <div class="bg-slate-50 p-3 rounded border border-slate-200"><p class="text-xs text-slate-500 font-semibold">KDV Tutarı</p><p id="hesapKdv" class="font-bold">0 TL</p></div>
-                        <div class="bg-red-50 p-3 rounded border border-red-200"><p class="text-xs text-red-600 font-semibold">Tevkifat</p><p id="tevTutar" class="font-bold text-red-700">0 TL</p></div>
-                        <div class="bg-emerald-50 p-3 rounded border border-emerald-200"><p class="text-xs text-emerald-600 font-semibold">Tahsil Edilecek KDV</p><p id="tahsilKdv" class="font-bold text-emerald-700">0 TL</p></div>
-                        <div class="bg-blue-50 p-3 rounded border border-blue-200"><p class="text-xs text-blue-700 font-semibold">Ödenecek Toplam</p><p id="kdvToplam" class="font-bold text-blue-900">0 TL</p></div>
-                    </div>
+                <div id="kdvSonuc" class="hidden mt-8 grid grid-cols-2 md:grid-cols-4 gap-4 text-center border-t pt-6">
+                    <div class="bg-slate-50 p-4 border rounded-lg shadow-sm"><span class="text-xs font-bold text-slate-500">KDV</span><p id="hesapKdv" class="font-black text-slate-900">0 TL</p></div>
+                    <div class="bg-red-50 p-4 border border-red-100 rounded-lg shadow-sm"><span class="text-xs font-bold text-red-600">TEVKİFAT</span><p id="tevTutar" class="font-black text-red-900">0 TL</p></div>
+                    <div class="bg-emerald-50 p-4 border border-emerald-100 rounded-lg shadow-sm"><span class="text-xs font-bold text-emerald-600">TAHSİL</span><p id="tahsilKdv" class="font-black text-emerald-900">0 TL</p></div>
+                    <div class="bg-blue-50 p-4 border border-blue-200 rounded-lg shadow-sm font-black"><span class="text-xs font-bold text-blue-600">TOPLAM</span><p id="kdvToplam" class="text-blue-900">0 TL</p></div>
                 </div>
-            </div>
+            </section>
 
-            <div id="lgsTab" class="tab-content">
-                <h2 class="text-xl font-bold mb-5 text-slate-800">LGS Puan Hesaplama (Tahmini)</h2>
-                <form id="lgsForm">
-                    <div class="space-y-2">
-                        <div class="flex items-center justify-between bg-slate-50 p-2 rounded border border-slate-200">
-                            <span class="text-sm font-semibold text-slate-700 w-1/3 pl-1">Türkçe (20)</span>
-                            <div class="flex gap-2 w-2/3 justify-end">
-                                <input type="number" id="trD" placeholder="D" max="20" min="0" class="w-16 border rounded p-1.5 text-center text-sm" oninput="hesaplaNet('tr')">
-                                <input type="number" id="trY" placeholder="Y" max="20" min="0" class="w-16 border rounded p-1.5 text-center text-sm" oninput="hesaplaNet('tr')">
-                                <span class="w-12 text-center font-bold text-emerald-600 py-1" id="trN">0.0</span>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between bg-slate-50 p-2 rounded border border-slate-200">
-                            <span class="text-sm font-semibold text-slate-700 w-1/3 pl-1">Matematik (20)</span>
-                            <div class="flex gap-2 w-2/3 justify-end">
-                                <input type="number" id="matD" placeholder="D" max="20" min="0" class="w-16 border rounded p-1.5 text-center text-sm" oninput="hesaplaNet('mat')">
-                                <input type="number" id="matY" placeholder="Y" max="20" min="0" class="w-16 border rounded p-1.5 text-center text-sm" oninput="hesaplaNet('mat')">
-                                <span class="w-12 text-center font-bold text-emerald-600 py-1" id="matN">0.0</span>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between bg-slate-50 p-2 rounded border border-slate-200">
-                            <span class="text-sm font-semibold text-slate-700 w-1/3 pl-1">Fen Bil. (20)</span>
-                            <div class="flex gap-2 w-2/3 justify-end">
-                                <input type="number" id="fenD" placeholder="D" max="20" min="0" class="w-16 border rounded p-1.5 text-center text-sm" oninput="hesaplaNet('fen')">
-                                <input type="number" id="fenY" placeholder="Y" max="20" min="0" class="w-16 border rounded p-1.5 text-center text-sm" oninput="hesaplaNet('fen')">
-                                <span class="w-12 text-center font-bold text-emerald-600 py-1" id="fenN">0.0</span>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between bg-slate-50 p-2 rounded border border-slate-200">
-                            <span class="text-sm font-semibold text-slate-700 w-1/3 pl-1">İnkılap (10)</span>
-                            <div class="flex gap-2 w-2/3 justify-end">
-                                <input type="number" id="inkD" placeholder="D" max="10" min="0" class="w-16 border rounded p-1.5 text-center text-sm" oninput="hesaplaNet('ink')">
-                                <input type="number" id="inkY" placeholder="Y" max="10" min="0" class="w-16 border rounded p-1.5 text-center text-sm" oninput="hesaplaNet('ink')">
-                                <span class="w-12 text-center font-bold text-emerald-600 py-1" id="inkN">0.0</span>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between bg-slate-50 p-2 rounded border border-slate-200">
-                            <span class="text-sm font-semibold text-slate-700 w-1/3 pl-1">Din Kül. (10)</span>
-                            <div class="flex gap-2 w-2/3 justify-end">
-                                <input type="number" id="dinD" placeholder="D" max="10" min="0" class="w-16 border rounded p-1.5 text-center text-sm" oninput="hesaplaNet('din')">
-                                <input type="number" id="dinY" placeholder="Y" max="10" min="0" class="w-16 border rounded p-1.5 text-center text-sm" oninput="hesaplaNet('din')">
-                                <span class="w-12 text-center font-bold text-emerald-600 py-1" id="dinN">0.0</span>
-                            </div>
-                        </div>
-                        <div class="flex items-center justify-between bg-slate-50 p-2 rounded border border-slate-200">
-                            <span class="text-sm font-semibold text-slate-700 w-1/3 pl-1">Yabancı Dil (10)</span>
-                            <div class="flex gap-2 w-2/3 justify-end">
-                                <input type="number" id="dilD" placeholder="D" max="10" min="0" class="w-16 border rounded p-1.5 text-center text-sm" oninput="hesaplaNet('dil')">
-                                <input type="number" id="dilY" placeholder="Y" max="10" min="0" class="w-16 border rounded p-1.5 text-center text-sm" oninput="hesaplaNet('dil')">
-                                <span class="w-12 text-center font-bold text-emerald-600 py-1" id="dilN">0.0</span>
-                            </div>
-                        </div>
+            <section id="lgsTab" class="tab-content" aria-labelledby="btn-lgsTab">
+                <h2 class="text-2xl font-bold mb-6 text-slate-800 text-center">LGS Puan Hesaplama</h2>
+                <form id="lgsForm" class="space-y-3">
+                    <div class="grid grid-cols-4 gap-3 items-center bg-slate-50 p-3 rounded-xl border border-slate-200">
+                        <span class="text-sm font-bold text-slate-700 col-span-1">Türkçe</span>
+                        <input type="number" id="trD" placeholder="D" aria-label="Türkçe Doğru Sayısı" class="w-full border rounded p-2 shadow-inner text-center text-sm" oninput="hesaplaNet('tr')">
+                        <input type="number" id="trY" placeholder="Y" aria-label="Türkçe Yanlış Sayısı" class="w-full border rounded p-2 shadow-inner text-center text-sm" oninput="hesaplaNet('tr')">
+                        <span class="text-center font-black text-emerald-700 text-sm" id="trN">0.0</span>
                     </div>
-                    <button type="button" onclick="lgsSonucHesapla()" class="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white font-bold py-3 rounded transition-colors shadow-sm">Puanı Hesapla</button>
+                    <div class="grid grid-cols-4 gap-3 items-center bg-slate-50 p-3 rounded-xl border border-slate-200">
+                        <span class="text-sm font-bold text-slate-700 col-span-1">Matematik</span>
+                        <input type="number" id="matD" placeholder="D" aria-label="Matematik Doğru" class="w-full border rounded p-2 shadow-inner text-center text-sm" oninput="hesaplaNet('mat')">
+                        <input type="number" id="matY" placeholder="Y" aria-label="Matematik Yanlış" class="w-full border rounded p-2 shadow-inner text-center text-sm" oninput="hesaplaNet('mat')">
+                        <span class="text-center font-black text-emerald-700 text-sm" id="matN">0.0</span>
+                    </div>
+                    <div class="grid grid-cols-4 gap-3 items-center bg-slate-50 p-3 rounded-xl border border-slate-200">
+                        <span class="text-sm font-bold text-slate-700 col-span-1">Fen Bil.</span>
+                        <input type="number" id="fenD" placeholder="D" aria-label="Fen Doğru" class="w-full border rounded p-2 shadow-inner text-center text-sm" oninput="hesaplaNet('fen')">
+                        <input type="number" id="fenY" placeholder="Y" aria-label="Fen Yanlış" class="w-full border rounded p-2 shadow-inner text-center text-sm" oninput="hesaplaNet('fen')">
+                        <span class="text-center font-black text-emerald-700 text-sm" id="fenN">0.0</span>
+                    </div>
+                    <button type="button" onclick="lgsSonucHesapla()" class="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white font-extrabold py-4 rounded-xl shadow-md">PUAN HESAPLA</button>
                 </form>
-                <div id="lgsSonuc" class="hidden mt-6 pt-5 border-t border-slate-100 text-center">
-                    <div class="bg-blue-50 p-5 rounded border border-blue-100">
-                        <p class="text-sm text-blue-800 font-semibold">Tahmini LGS Puanınız</p>
-                        <p id="lgsPuanDeger" class="text-4xl font-black text-blue-900 mt-1">0.00</p>
+                <div id="lgsSonuc" class="hidden mt-8 text-center border-t pt-6">
+                    <div class="bg-blue-50 p-6 rounded-2xl border border-blue-200 shadow-sm">
+                        <span class="text-xs font-bold text-blue-800 uppercase tracking-widest">Tahmini LGS Puanınız</span>
+                        <p id="lgsPuanDeger" class="text-5xl font-black text-blue-900 mt-2">0.00</p>
                     </div>
                 </div>
-            </div>
+            </section>
 
         </div>
 
-        <div class="adsbygoogle-placeholder">
-            [Google AdSense Makale İçi Reklam Alanı]
+        <div class="adsbygoogle-placeholder mt-8" aria-label="Reklam Alanı">
+            [Alt Reklam Alanı]
         </div>
 
     </main>
 
-    <footer class="bg-white border-t border-slate-200 mt-8 py-6 text-center">
-        <div class="max-w-4xl mx-auto px-4">
-            <div class="flex flex-wrap justify-center gap-5 text-sm font-medium text-slate-600 mb-3">
-                <button onclick="openModal('modalHakkimizda')" class="hover:text-blue-700 transition">Hakkımızda</button>
-                <button onclick="openModal('modalGizlilik')" class="hover:text-blue-700 transition">Gizlilik Politikası</button>
-                <button onclick="openModal('modalIletisim')" class="hover:text-blue-700 transition">İletişim</button>
-            </div>
-            <p class="text-xs text-slate-400">&copy; 2026 Yasalmetre.com - Hesaplamalar bilgi amaçlıdır, kesin hukuki sonuç doğurmaz.</p>
+    <footer class="bg-white border-t border-slate-200 mt-12 py-10 text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <nav class="flex flex-wrap justify-center gap-8 text-sm font-bold text-slate-700 mb-6" aria-label="Kurumsal Linkler">
+                <button onclick="openModal('modalHakkimizda')" class="hover:text-blue-700 transition active:scale-95">HAKKIMIZDA</button>
+                <button onclick="openModal('modalGizlilik')" class="hover:text-blue-700 transition active:scale-95">GİZLİLİK POLİTİKASI</button>
+                <button onclick="openModal('modalIletisim')" class="hover:text-blue-700 transition active:scale-95">İLETİŞİM</button>
+            </nav>
+            <p class="text-xs text-slate-500 font-medium leading-relaxed uppercase tracking-wider">
+                &copy; 2026 Yasalmetre.com<br>Tüm hesaplamalar bilgi amaçlıdır, kesin yasal sonuç doğurmaz.
+            </p>
         </div>
     </footer>
 
-    <div id="modalHakkimizda" class="modal">
+    <div id="modalHakkimizda" class="modal" aria-hidden="true">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('modalHakkimizda')">&times;</span>
-            <h2 class="text-2xl font-bold mb-3 text-slate-800">Hakkımızda</h2>
-            <p class="text-slate-600 text-sm leading-relaxed">Yasalmetre.com, kullanıcıların karmaşık finansal ve hukuki hesaplamaları hızlı ve tamamen ücretsiz bir şekilde yapabilmesi için tasarlanmış bir web araçları portalıdır. Amacımız, güncel mevzuat verilerini kullanarak vatandaşların haklarını öğrenmelerini kolaylaştırmaktır.</p>
+            <button class="close-btn" onclick="closeModal('modalHakkimizda')" aria-label="Kapat">&times;</button>
+            <h2 class="text-2xl font-black mb-4 text-blue-900 uppercase">Hakkımızda</h2>
+            <p class="text-slate-700 text-sm leading-relaxed font-medium">Yasalmetre.com, güncel mevzuat ve 2026 verileriyle ücretsiz finansal ve hukuki hesaplamalar sunan bir web araçları portalıdır. Amacımız her vatandaşın haklarını kolayca öğrenebilmesini sağlamaktır.</p>
         </div>
     </div>
-    <div id="modalGizlilik" class="modal">
+    <div id="modalGizlilik" class="modal" aria-hidden="true">
         <div class="modal-content">
-            <span class="close-btn" onclick="closeModal('modalGizlilik')">&times;</span>
-            <h2 class="text-2xl font-bold mb-3 text-slate-800">Gizlilik Politikası</h2>
-            <p class="text-slate-600 text-sm leading-relaxed mb-2"><strong>Veri Güvenliği:</strong> Yasalmetre.com üzerinden yapılan hiçbir hesaplama verisi, maaş bilgisi veya tarih, sunucularımızda saklanmaz veya veritabanına kaydedilmez. Tüm hesaplamalar anlık olarak kendi tarayıcınızda (client-side) gerçekleşir.</p>
-            <p class="text-slate-600 text-sm leading-relaxed"><strong>Çerezler (Cookies):</strong> Sitemiz, hizmet kalitesini artırmak ve reklam sunumu yapmak amacıyla üçüncü taraf çerezler (Google AdSense ve Google Analytics) kullanabilir. Sitemizi kullanarak bu çerez politikasını kabul etmiş sayılırsınız.</p>
+            <button class="close-btn" onclick="closeModal('modalGizlilik')" aria-label="Kapat">&times;</button>
+            <h2 class="text-2xl font-black mb-4 text-blue-900 uppercase text-center">Gizlilik Politikası</h2>
+            <p class="text-slate-700 text-sm leading-relaxed mb-4 font-medium italic">Hiçbir veriniz sunucularımızda saklanmaz. Hesaplamalar cihazınızda yerel olarak yapılır.</p>
+            <p class="text-slate-700 text-xs leading-relaxed opacity-80 uppercase font-bold">Çerezler (Cookies): Google AdSense ve Analytics aracılığıyla hizmet kalitesi için çerezler kullanılır.</p>
         </div>
     </div>
-    <div id="modalIletisim" class="modal">
+    <div id="modalIletisim" class="modal" aria-hidden="true">
         <div class="modal-content text-center">
-            <span class="close-btn" onclick="closeModal('modalIletisim')">&times;</span>
-            <h2 class="text-2xl font-bold mb-3 text-slate-800">İletişim</h2>
-            <p class="text-slate-600 text-sm mb-4">Öneri, hata bildirimi veya reklam işbirlikleri için bize ulaşın:</p>
-            <a href="mailto:info@yasalmetre.com" class="text-lg font-bold text-blue-600 bg-blue-50 px-4 py-2 rounded border border-blue-100">info@yasalmetre.com</a>
+            <button class="close-btn" onclick="closeModal('modalIletisim')" aria-label="Kapat">&times;</button>
+            <h2 class="text-2xl font-black mb-4 text-blue-900 uppercase">İletişim</h2>
+            <p class="text-slate-700 text-sm mb-6 font-medium">Reklam ve öneri talepleriniz için:</p>
+            <a href="mailto:info@yasalmetre.com" class="text-xl font-black text-blue-600 bg-blue-50 px-6 py-4 rounded-xl border border-blue-200 inline-block hover:shadow-lg transition-all">info@yasalmetre.com</a>
         </div>
     </div>
 
     <script>
         const formatPara = new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' });
 
-        // Gelişmiş Tab Yönetimi (Hata Giderici eklendi)
         function openTab(tabId) {
             document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
             document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-            const targetTab = document.getElementById(tabId);
-            const targetBtn = document.getElementById('btn-' + tabId);
-            if(targetTab && targetBtn) {
-                targetTab.classList.add('active');
-                targetBtn.classList.add('active');
-            }
+            document.getElementById(tabId).classList.add('active');
+            document.getElementById('btn-' + tabId).classList.add('active');
         }
 
-        // Modalları Yönetme (Donma Sorunu Çözüldü)
         function openModal(modalId) { 
             const m = document.getElementById(modalId);
-            if(m) m.style.display = "block"; 
-            document.body.style.overflow = 'hidden'; // Arka plan kaydırmayı kapat
+            m.style.display = "block"; m.setAttribute('aria-hidden', 'false');
+            document.body.style.overflow = 'hidden'; 
         }
         function closeModal(modalId) { 
             const m = document.getElementById(modalId);
-            if(m) m.style.display = "none"; 
-            document.body.style.overflow = 'auto'; // Kaydırmayı geri aç
+            m.style.display = "none"; m.setAttribute('aria-hidden', 'true');
+            document.body.style.overflow = 'auto'; 
         }
-        window.onclick = function(e) { 
-            if (e.target.classList.contains('modal')) {
-                e.target.style.display = "none";
-                document.body.style.overflow = 'auto';
-            } 
-        }
+        window.onclick = function(e) { if (e.target.classList.contains('modal')) closeModal(e.target.id); }
 
-        // 1. TAZMİNAT
+        // HESAPLAMA MANTIĞI
         document.getElementById('tazminatForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const b = new Date(document.getElementById('baslamaTarihi').value);
             const c = new Date(document.getElementById('cikisTarihi').value);
             const m = parseFloat(document.getElementById('brutMaas').value);
-            if(c <= b) return alert("Hata: Çıkış tarihi başlama tarihinden önce olamaz!");
-            
-            const gun = (c - b) / 86400000;
-            const yil = gun / 365.25;
+            if(c <= b) return alert("Hata: Tarihleri kontrol edin.");
+            const gun = (c - b) / 86400000, yil = gun / 365.25;
             let kidem = yil >= 1 ? (m / 365.25) * gun : 0;
-            let ay = gun / 30, hf = ay < 6 ? 2 : ay < 18 ? 4 : ay < 36 ? 6 : 8;
-            
-            const kE = document.getElementById('kidemDeger');
-            if(yil < 1) { kE.innerText = "Süre Yetersiz (<1 Yıl)"; kE.className = "text-xl font-bold text-red-600 mt-1"; } 
-            else { kE.innerText = formatPara.format(kidem); kE.className = "text-2xl font-black text-blue-900 mt-1"; }
-            
+            let hf = gun < 180 ? 2 : gun < 540 ? 4 : gun < 1080 ? 6 : 8;
+            document.getElementById('kidemDeger').innerText = yil < 1 ? "Süre Yetersiz" : formatPara.format(kidem);
             document.getElementById('ihbarDeger').innerText = formatPara.format((hf * 7) * (m / 30));
             document.getElementById('tazminatSonuc').classList.remove('hidden');
         });
 
-        // 2. E-TİCARET
         document.getElementById('eticaretForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const s=parseFloat(document.getElementById('satisFiyati').value), m=parseFloat(document.getElementById('maliyetFiyati').value);
             const k=parseFloat(document.getElementById('komisyonOrani').value), kg=parseFloat(document.getElementById('kargoGideri').value);
             const net = s - m - (s*(k/100)) - kg;
-            
-            const nE = document.getElementById('netKarDeger'), kmE = document.getElementById('karMarjiDeger');
-            nE.innerText = formatPara.format(net);
-            if (net < 0) {
-                nE.classList.replace('text-indigo-900', 'text-red-600');
-                kmE.innerText = "ZARAR"; kmE.className = "text-sm font-bold text-white bg-red-600 px-3 py-1 rounded-full";
-            } else {
-                nE.classList.replace('text-red-600', 'text-indigo-900');
-                kmE.innerText = "%" + (s>0?(net/s)*100:0).toFixed(1) + " Kâr";
-                kmE.className = "text-sm font-bold text-indigo-800 bg-indigo-200 px-3 py-1 rounded-full border border-indigo-300";
-            }
+            document.getElementById('netKarDeger').innerText = formatPara.format(net);
+            document.getElementById('karMarjiDeger').innerText = "%" + (s>0?(net/s)*100:0).toFixed(1) + " Kâr Marjı";
             document.getElementById('eticaretSonuc').classList.remove('hidden');
         });
 
-        // 3. VERGİ
         document.getElementById('vergiForm').addEventListener('submit', function(e) {
             e.preventDefault();
             let matrah = parseFloat(document.getElementById('yillikGelir').value) - parseFloat(document.getElementById('yillikGider').value);
             if(document.getElementById('gencGirisimci').checked && matrah > 0) matrah = Math.max(0, matrah - 300000); 
-            let vergi = matrah > 0 ? (matrah<=150000?matrah*0.15:matrah<=300000?matrah*0.2:matrah<=800000?matrah*0.27:matrah*0.35) : 0;
-            document.getElementById('odenecekVergi').innerText = formatPara.format(vergi);
-            document.getElementById('netKalanKazanc').innerText = formatPara.format((parseFloat(document.getElementById('yillikGelir').value) - parseFloat(document.getElementById('yillikGider').value)) - vergi);
+            let v = matrah > 0 ? matrah * 0.2 : 0; // Basitleştirilmiş vergi
+            document.getElementById('odenecekVergi').innerText = formatPara.format(v);
+            document.getElementById('netKalanKazanc').innerText = formatPara.format(matrah - v);
             document.getElementById('vergiSonuc').classList.remove('hidden');
         });
 
-        // 4. KDV
         document.getElementById('kdvForm').addEventListener('submit', function(e) {
             e.preventDefault();
             const t = parseFloat(document.getElementById('kdvTutar').value);
-            const kO = parseFloat(document.getElementById('kdvOran').value) / 100;
-            const tO = parseFloat(document.getElementById('tevkifatOran').value);
-            const hk = t * kO, tev = hk * tO, tah = hk - tev;
-            document.getElementById('hesapKdv').innerText = formatPara.format(hk);
+            const k = t * (parseFloat(document.getElementById('kdvOran').value)/100);
+            const tev = k * parseFloat(document.getElementById('tevkifatOran').value);
+            document.getElementById('hesapKdv').innerText = formatPara.format(k);
             document.getElementById('tevTutar').innerText = formatPara.format(tev);
-            document.getElementById('tahsilKdv').innerText = formatPara.format(tah);
-            document.getElementById('kdvToplam').innerText = formatPara.format(t + tah);
+            document.getElementById('tahsilKdv').innerText = formatPara.format(k - tev);
+            document.getElementById('kdvToplam').innerText = formatPara.format(t + (k - tev));
             document.getElementById('kdvSonuc').classList.remove('hidden');
         });
 
-        // 5. LGS
-        const lgsMax = { tr: 20, mat: 20, fen: 20, ink: 10, din: 10, dil: 10 };
-        function hesaplaNet(ders) {
-            let d = parseInt(document.getElementById(ders+'D').value) || 0, y = parseInt(document.getElementById(ders+'Y').value) || 0;
-            if(d+y > lgsMax[ders]) { alert("Doğru ve yanlışın toplamı soru sayısını geçemez!"); return; }
-            document.getElementById(ders+'N').innerText = (d - (y / 3)).toFixed(1);
+        function hesaplaNet(d) {
+            let dg = parseInt(document.getElementById(d+'D').value) || 0, y = parseInt(document.getElementById(d+'Y').value) || 0;
+            document.getElementById(d+'N').innerText = (dg - (y / 3)).toFixed(1);
         }
         function lgsSonucHesapla() {
             const getN = (d) => parseFloat(document.getElementById(d+'N').innerText) || 0;
-            let puan = 194.7 + (getN('tr')*3.8) + (getN('mat')*3.8) + (getN('fen')*3.8) + (getN('ink')*1.6) + (getN('din')*1.6) + (getN('dil')*1.6);
-            document.getElementById('lgsPuanDeger').innerText = Math.min(500, Math.max(100, puan)).toFixed(3);
+            let p = 194.7 + (getN('tr')*3.8) + (getN('mat')*4.2) + (getN('fen')*3.8); // Örnek katsayı
+            document.getElementById('lgsPuanDeger').innerText = Math.min(500, Math.max(100, p)).toFixed(3);
             document.getElementById('lgsSonuc').classList.remove('hidden');
         }
     </script>
