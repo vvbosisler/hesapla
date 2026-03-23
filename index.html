@@ -322,18 +322,30 @@
             document.getElementById('lgsSonuc').classList.remove('hidden');
         }
         // Modern ve Hızlı Ziyaretçi Sayacı
-async function getVisitCount() {
+// Gelişmiş Hibrit Ziyaretçi Sayacı
+async function updateCounter() {
+    const counterEl = document.getElementById('visitCount');
+    const startNumber = 1054; // Başlangıç taban puanımız (Hayırlı olsun!)
+
     try {
-        // Ücretsiz ve güvenilir Counter API kullanıyoruz
-        const response = await fetch('https://api.counterapi.dev/v1/yasalmetre/home/up');
+        // Namespace'i daha benzersiz yaptık ki takılmasın
+        const response = await fetch('https://api.counterapi.dev/v1/yasalmetre_v2026/hits/up');
+        if (!response.ok) throw new Error('API ulaşılamaz');
+        
         const data = await response.json();
-        document.getElementById('visitCount').innerText = data.count.toLocaleString('tr-TR');
+        // API'den gelen sayı + Başlangıç sayımız
+        counterEl.innerText = (startNumber + data.count).toLocaleString('tr-TR');
     } catch (error) {
-        // Eğer API'de bir sorun olursa siteyi bozma, varsayılan bir sayı göster
-        document.getElementById('visitCount').innerText = "1,054"; 
+        // API çalışmazsa yerel hafızayı kullan (Psikolojik Sayaç)
+        let localHits = localStorage.getItem('yasalmetre_hits') || 0;
+        localHits = parseInt(localHits) + 1;
+        localStorage.setItem('yasalmetre_hits', localHits);
+        
+        counterEl.innerText = (startNumber + localHits).toLocaleString('tr-TR');
+        console.log("Not: Sayaç yerel hafızadan çalışıyor (DNS/AdBlock engeli olabilir).");
     }
 }
-getVisitCount();
+updateCounter();
     </script>
 </body>
 </html>
