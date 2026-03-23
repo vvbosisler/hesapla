@@ -206,11 +206,18 @@
                 <button onclick="openModal('modalIletisim')" class="hover:text-blue-700 transition active:scale-95">İLETİŞİM</button>
             </nav>
             <p class="text-xs text-slate-500 font-medium leading-relaxed uppercase tracking-wider">
-                <div class="mb-4 inline-flex items-center bg-slate-100 px-4 py-1.5 rounded-full border border-slate-200">
-    <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse mr-2"></span>
-    <p class="text-[10px] md:text-xs font-bold text-slate-600 uppercase tracking-tighter">
-        Toplam Ziyaretçi: <span id="visitCount" class="text-slate-900 ml-1">...</span>
-    </p>
+                <div class="flex flex-col items-center gap-2 mb-6">
+    <div class="inline-flex items-center bg-slate-100 px-4 py-1.5 rounded-full border border-slate-200">
+        <span class="text-[10px] font-bold text-slate-500 uppercase tracking-widest">Toplam Kullanım:</span>
+        <span id="visitCount" class="text-xs font-black text-slate-900 ml-2">...</span>
+    </div>
+
+    <div class="inline-flex items-center bg-emerald-50 px-4 py-1.5 rounded-full border border-emerald-100 shadow-sm">
+        <span class="w-2 h-2 bg-emerald-500 rounded-full animate-ping mr-2"></span>
+        <p class="text-[10px] md:text-xs font-bold text-emerald-700 uppercase tracking-tighter">
+            Şu an <span id="liveCount" class="text-emerald-900 mx-1">3</span> kişi hesaplıyor
+        </p>
+    </div>
 </div>
 <br>
                 &copy; 2026 Yasalmetre.com<br>Tüm hesaplamalar bilgi amaçlıdır, kesin yasal sonuç doğurmaz.
@@ -323,29 +330,49 @@
         }
         // Modern ve Hızlı Ziyaretçi Sayacı
 // Gelişmiş Hibrit Ziyaretçi Sayacı
-async function updateCounter() {
+async function updateCounterPro() {
     const counterEl = document.getElementById('visitCount');
-    const startNumber = 1054; // Başlangıç taban puanımız (Hayırlı olsun!)
+    const liveEl = document.getElementById('liveCount');
+    const startNumber = 1054; 
 
+    // 1. TOPLAM ZİYARETÇİ MANTIĞI
+    const isCounted = sessionStorage.getItem('yasalmetre_counted');
     try {
-        // Namespace'i daha benzersiz yaptık ki takılmasın
-        const response = await fetch('https://api.counterapi.dev/v1/yasalmetre_v2026/hits/up');
-        if (!response.ok) throw new Error('API ulaşılamaz');
-        
+        let apiUrl = 'https://api.counterapi.dev/v1/yasalmetre_pro/hits';
+        if (!isCounted) {
+            apiUrl += '/up';
+            sessionStorage.setItem('yasalmetre_counted', 'true');
+        }
+        const response = await fetch(apiUrl);
         const data = await response.json();
-        // API'den gelen sayı + Başlangıç sayımız
         counterEl.innerText = (startNumber + data.count).toLocaleString('tr-TR');
-    } catch (error) {
-        // API çalışmazsa yerel hafızayı kullan (Psikolojik Sayaç)
-        let localHits = localStorage.getItem('yasalmetre_hits') || 0;
-        localHits = parseInt(localHits) + 1;
-        localStorage.setItem('yasalmetre_hits', localHits);
-        
-        counterEl.innerText = (startNumber + localHits).toLocaleString('tr-TR');
-        console.log("Not: Sayaç yerel hafızadan çalışıyor (DNS/AdBlock engeli olabilir).");
+    } catch (e) {
+        counterEl.innerText = startNumber.toLocaleString('tr-TR');
     }
+
+    // 2. ANLIK KULLANICI SİMÜLASYONU (Dinamik ve Gerçekçi)
+    function updateLive() {
+        // Günün saatine göre mantıklı bir aralık seçer (Gece az, gündüz çok)
+        const saat = new Date().getHours();
+        let min = 2, max = 6;
+        
+        if (saat > 9 && saat < 18) { min = 5; max = 14; } // Mesai saatleri yoğunluğu
+        if (saat >= 18 && saat < 23) { min = 4; max = 10; } // Akşam yoğunluğu
+
+        const randomLive = Math.floor(Math.random() * (max - min + 1)) + min;
+        
+        // Yumuşak geçiş efekti
+        liveEl.style.opacity = 0;
+        setTimeout(() => {
+            liveEl.innerText = randomLive;
+            liveEl.style.opacity = 1;
+        }, 500);
+    }
+
+    updateLive();
+    setInterval(updateLive, 8000); // Her 8 saniyede bir anlık sayıyı güncelle
 }
-updateCounter();
+updateCounterPro();
     </script>
 </body>
 </html>
