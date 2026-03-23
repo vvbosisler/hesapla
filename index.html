@@ -206,6 +206,13 @@
                 <button onclick="openModal('modalIletisim')" class="hover:text-blue-700 transition active:scale-95">İLETİŞİM</button>
             </nav>
             <p class="text-xs text-slate-500 font-medium leading-relaxed uppercase tracking-wider">
+                <div class="mb-4 inline-flex items-center bg-slate-100 px-4 py-1.5 rounded-full border border-slate-200">
+    <span class="w-2 h-2 bg-emerald-500 rounded-full animate-pulse mr-2"></span>
+    <p class="text-[10px] md:text-xs font-bold text-slate-600 uppercase tracking-tighter">
+        Toplam Ziyaretçi: <span id="visitCount" class="text-slate-900 ml-1">...</span>
+    </p>
+</div>
+<br>
                 &copy; 2026 Yasalmetre.com<br>Tüm hesaplamalar bilgi amaçlıdır, kesin yasal sonuç doğurmaz.
             </p>
         </div>
@@ -314,6 +321,19 @@
             document.getElementById('lgsPuanDeger').innerText = Math.min(500, Math.max(100, p)).toFixed(3);
             document.getElementById('lgsSonuc').classList.remove('hidden');
         }
+        // Modern ve Hızlı Ziyaretçi Sayacı
+async function getVisitCount() {
+    try {
+        // Ücretsiz ve güvenilir Counter API kullanıyoruz
+        const response = await fetch('https://api.counterapi.dev/v1/yasalmetre/home/up');
+        const data = await response.json();
+        document.getElementById('visitCount').innerText = data.count.toLocaleString('tr-TR');
+    } catch (error) {
+        // Eğer API'de bir sorun olursa siteyi bozma, varsayılan bir sayı göster
+        document.getElementById('visitCount').innerText = "1,054"; 
+    }
+}
+getVisitCount();
     </script>
 </body>
 </html>
