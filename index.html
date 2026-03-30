@@ -25,9 +25,6 @@
         .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(4px); }
         .modal-content { background: #fff; margin: 10% auto; padding: 2rem; border-radius: 16px; max-width: 500px; animation: slideDown 0.3s ease-out; }
         @keyframes slideDown { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-        
-        /* REKLAM ALANI TASARIMI */
-        .ad-container { @apply w-full flex justify-center items-center bg-slate-50 border border-slate-200 border-dashed rounded-2xl overflow-hidden min-h-[100px] relative text-center; }
     </style>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans min-h-screen flex flex-col">
@@ -45,12 +42,12 @@
 
     <main class="max-w-4xl mx-auto p-4 mt-4 w-full flex-grow">
         
-        <div class="ad-container mb-6">
+        <div class="w-full flex justify-center items-center bg-slate-50 border border-slate-300 border-dashed rounded-2xl overflow-hidden min-h-[100px] relative text-center mb-6">
             <span class="text-[10px] text-slate-400 font-bold uppercase tracking-widest absolute z-0">Sponsorlu Bağlantı</span>
             <ins class="adsbygoogle relative z-10"
                  style="display:block; width:100%;"
                  data-ad-client="ca-pub-2476803296366519"
-                 data-ad-slot="3796939733"
+                 data-ad-slot="BURAYA_1_NUMARALI_REKLAM_SLOT_KODUNU_YAZ"
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -242,13 +239,35 @@
             </section>
 
         </div>
+
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 mt-6 mb-6">
+            <h2 class="text-xl font-bold text-blue-900 mb-4">Sıkça Sorulan Sorular & Hesaplama Rehberi</h2>
+            <div class="space-y-4 text-sm text-slate-700 leading-relaxed">
+                <div>
+                    <h3 class="font-bold text-slate-900">Kıdem Tazminatı Nasıl Hesaplanır?</h3>
+                    <p>Kıdem tazminatı, çalışanın işyerinde geçirdiği her tam yıl için bir aylık brüt ücreti tutarında ödenen yasal bir haktır. 2026 yılı güncel verilerine göre hesaplama yapılırken, çalışanın son brüt maaşı ve çalışma süresi (yıl, ay, gün) dikkate alınır. 1 yıldan az çalışma süreleri için kıdem tazminatı ödenmez.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-slate-900">SMM (Serbest Meslek Makbuzu) Kesintileri Nelerdir?</h3>
+                    <p>Avukat, doktor, mimar ve mali müşavir gibi serbest meslek erbapları hizmet verdiklerinde SMM düzenler. Bu makbuzda genellikle %20 oranında Gelir Vergisi Stopajı kaynağında kesilir ve %20 (veya %10) KDV eklenerek müşteriden tahsil edilecek net tutar bulunur. Yasalmetre ile brütten nete veya netten brüte tüm SMM hesaplamalarınızı anında yapabilirsiniz.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-slate-900">Genç Girişimci İstisnası Nedir?</h3>
+                    <p>29 yaş altındaki şahıs şirketi kurucuları, yasal şartları sağlamaları halinde 3 yıl boyunca belirli bir tutara kadar gelir vergisinden muaf tutulurlar. Şirket vergisi hesaplama aracımız, bu istisnayı dikkate alarak size en doğru ödenecek vergi tahminini sunar.</p>
+                </div>
+                <div>
+                    <h3 class="font-bold text-slate-900">KDV Tevkifatı Hangi İşlemlerde Uygulanır?</h3>
+                    <p>KDV tevkifatı, faturadaki KDV tutarının bir kısmının veya tamamının (örneğin 2/10, 5/10, 9/10) alıcı tarafından devlete ödenmesi işlemidir. Temizlik, güvenlik, danışmanlık ve yapım işleri gibi spesifik sektörlerde oranlar değişiklik gösterir.</p>
+                </div>
+            </div>
+        </div>
         
-        <div class="ad-container mt-6">
+        <div class="w-full flex justify-center items-center bg-slate-50 border border-slate-300 border-dashed rounded-2xl overflow-hidden min-h-[100px] relative text-center mt-6 mb-6">
             <span class="text-[10px] text-slate-400 font-bold uppercase tracking-widest absolute z-0">Sponsorlu Bağlantı</span>
             <ins class="adsbygoogle relative z-10"
                  style="display:block; width:100%;"
                  data-ad-client="ca-pub-2476803296366519"
-                 data-ad-slot="3761147262"
+                 data-ad-slot="BURAYA_2_NUMARALI_REKLAM_SLOT_KODUNU_YAZ"
                  data-ad-format="auto"
                  data-full-width-responsive="true"></ins>
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
@@ -256,7 +275,7 @@
 
     </main>
 
-    <footer class="bg-white border-t border-slate-200 mt-12 py-8 text-center">
+    <footer class="bg-white border-t border-slate-200 mt-6 py-8 text-center">
         <div class="max-w-4xl mx-auto px-6">
             <nav class="flex justify-center gap-8 text-[10px] font-black text-slate-600 mb-6 uppercase tracking-widest">
                 <button onclick="openModal('modalHakkimizda')" class="hover:text-blue-600 transition">Hakkımızda</button>
@@ -383,7 +402,6 @@
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
 
         // --- HESAPLAMA MOTORLARI ---
-
         const calcTazminat = () => {
             try {
                 if(!DOM.tazminat.g.value || !DOM.tazminat.c.value || !DOM.tazminat.m.value) return DOM.tazminat.alan.classList.add('hidden');
