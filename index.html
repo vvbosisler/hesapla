@@ -192,7 +192,7 @@
                     <input type="number" id="eco-kargo" placeholder="Kargo ve Giderler (TL)" class="w-full border rounded-xl p-3 bg-slate-50 react-input">
                     <button type="button" onclick="triggerAllCalculations()" class="md:col-span-2 w-full bg-indigo-600 text-white font-black py-4 rounded-2xl shadow-lg active:scale-95 transition-transform">KÂR ANALİZİ YAP</button>
                 </form>
-                <div id="eco-sonuc-alan" class="hidden mt-6 p-6 rounded-2xl text-center border transition-all" id="eco-bg">
+                <div id="eco-sonuc-alan" class="hidden mt-6 p-6 rounded-2xl text-center border transition-all">
                     <span class="text-xs font-bold uppercase tracking-widest" id="eco-title">Net Kâr Durumu</span>
                     <p id="eco-net-val" class="text-4xl font-black my-2">0 TL</p>
                     <div id="eco-explain" class="text-xs font-medium opacity-80 mt-2 space-y-1"></div>
@@ -312,7 +312,7 @@
                 <button onclick="closeModal('modalIletisim')" class="text-slate-400 hover:text-red-500 text-2xl leading-none font-bold">&times;</button>
             </div>
             <h2 class="font-black text-xl text-blue-900 mb-4 uppercase">İletişim</h2>
-            <p class="text-sm text-slate-600 mb-6">Görüş, öneri, veya reklam talepleriniz için bize ulaşabilirsiniz:</p>
+            <p class="text-sm text-slate-600 mb-6">Görüş, öneri veya reklam talepleriniz için bize ulaşabilirsiniz:</p>
             <a href="mailto:info@yasalmetre.com" class="text-blue-600 font-black text-lg bg-blue-50 px-6 py-4 rounded-xl inline-block border border-blue-100 hover:bg-blue-100 transition">info@yasalmetre.com</a>
         </div>
     </div>
@@ -353,7 +353,7 @@
             },
             eco: {
                 s: document.getElementById('eco-satis'), m: document.getElementById('eco-maliyet'), k: document.getElementById('eco-komisyon'), kg: document.getElementById('eco-kargo'),
-                resNet: document.getElementById('eco-net-val'), exp: document.getElementById('eco-explain'), alan: document.getElementById('eco-sonuc-alan'), bg: document.getElementById('eco-bg')
+                resNet: document.getElementById('eco-net-val'), exp: document.getElementById('eco-explain'), alan: document.getElementById('eco-sonuc-alan')
             },
             vergi: {
                 gel: document.getElementById('vergi-gelir'), gid: document.getElementById('vergi-gider'), genc: document.getElementById('vergi-genc'),
@@ -362,7 +362,7 @@
         };
 
         // --- LOCAL STORAGE (STATE YÖNETİMİ) ---
-        const saveState = () => {
+        function saveState() {
             const state = {};
             document.querySelectorAll('.react-input').forEach(input => {
                 if (input.type === 'checkbox' || input.type === 'radio') {
@@ -372,9 +372,9 @@
                 }
             });
             localStorage.setItem('yasalmetre_state', JSON.stringify(state));
-        };
+        }
 
-        const loadState = () => {
+        function loadState() {
             const state = JSON.parse(localStorage.getItem('yasalmetre_state')) || {};
             document.querySelectorAll('.react-input').forEach(input => {
                 if (input.type === 'checkbox') {
@@ -386,7 +386,7 @@
                 }
             });
             triggerAllCalculations(); 
-        };
+        }
 
         // --- TAB & MODAL YÖNETİMİ ---
         document.getElementById('tabNav').addEventListener('click', (e) => {
@@ -402,7 +402,7 @@
         function closeModal(id) { document.getElementById(id).style.display = 'none'; }
 
         // --- HESAPLAMA MOTORLARI ---
-        const calcTazminat = () => {
+        function calcTazminat() {
             try {
                 if(!DOM.tazminat.g.value || !DOM.tazminat.c.value || !DOM.tazminat.m.value) return DOM.tazminat.alan.classList.add('hidden');
                 
@@ -435,9 +435,9 @@
                 `;
                 DOM.tazminat.alan.classList.remove('hidden');
             } catch (e) { DOM.tazminat.alan.classList.add('hidden'); }
-        };
+        }
 
-        const calcMaas = () => {
+        function calcMaas() {
             try {
                 const yon = DOM.maas.y.value;
                 const tutar = num(DOM.maas.t.value);
@@ -455,9 +455,9 @@
                 `;
                 DOM.maas.alan.classList.remove('hidden');
             } catch (e) { DOM.maas.alan.classList.add('hidden'); }
-        };
+        }
 
-        const calcSmm = () => {
+        function calcSmm() {
             try {
                 const tutar = num(DOM.smm.t.value);
                 if(tutar <= 0) return DOM.smm.alan.classList.add('hidden');
@@ -491,9 +491,9 @@
                 `;
                 DOM.smm.alan.classList.remove('hidden');
             } catch (e) { DOM.smm.alan.classList.add('hidden'); }
-        };
+        }
 
-        const calcKdv = () => {
+        function calcKdv() {
             try {
                 const tutar = num(DOM.kdv.t.value);
                 if(tutar <= 0) return DOM.kdv.alan.classList.add('hidden');
@@ -521,9 +521,9 @@
                 `;
                 DOM.kdv.alan.classList.remove('hidden');
             } catch (e) { DOM.kdv.alan.classList.add('hidden'); }
-        };
+        }
 
-        const calcEco = () => {
+        function calcEco() {
             try {
                 const s = num(DOM.eco.s.value);
                 if(s <= 0) return DOM.eco.alan.classList.add('hidden');
@@ -535,17 +535,16 @@
 
                 DOM.eco.resNet.innerText = fmt.format(kar);
                 
-                DOM.eco.bg.className = `hidden mt-6 p-6 rounded-2xl text-center border transition-all ${kar < 0 ? 'bg-red-50 border-red-200 text-red-900' : 'bg-indigo-50 border-indigo-200 text-indigo-900'}`;
+                DOM.eco.alan.className = `mt-6 p-6 rounded-2xl text-center border transition-all ${kar < 0 ? 'bg-red-50 border-red-200 text-red-900' : 'bg-indigo-50 border-indigo-200 text-indigo-900'}`;
                 
                 DOM.eco.exp.innerHTML = `
                     <p>📦 Ürün Maliyeti: ${fmt.format(m)} | 🏷️ Komisyon: ${fmt.format(kom)} | 🚚 Kargo: ${fmt.format(kg)}</p>
                     <p class="mt-2 font-bold ${kar < 0 ? 'text-red-600' : 'text-emerald-600'}">Kâr Marjı: %${((kar / s) * 100).toFixed(1)}</p>
                 `;
-                DOM.eco.alan.classList.remove('hidden');
             } catch(e) { DOM.eco.alan.classList.add('hidden'); }
-        };
+        }
 
-        const calcVergi = () => {
+        function calcVergi() {
             try {
                 const gel = num(DOM.vergi.gel.value);
                 if(gel <= 0) return DOM.vergi.alan.classList.add('hidden');
@@ -569,7 +568,7 @@
                 `;
                 DOM.vergi.alan.classList.remove('hidden');
             } catch(e) { DOM.vergi.alan.classList.add('hidden'); }
-        };
+        }
 
         // --- LGS SİSTEMİ ---
         const dersler = [
@@ -577,7 +576,7 @@
             { id: 'ink', ad: 'İnkılap', k: 1 }, { id: 'din', ad: 'Din K.', k: 1 }, { id: 'ing', ad: 'İngilizce', k: 1 }
         ];
 
-        const initLGS = () => {
+        function initLGS() {
             const c = document.getElementById('lgs-dersler-container');
             c.innerHTML = dersler.map(d => `
                 <div class="grid grid-cols-4 gap-2 items-center bg-slate-50 p-2 rounded-xl border mt-2">
@@ -589,9 +588,9 @@
             `).join('');
             
             bindReactivity(); 
-        };
+        }
 
-        const calcLGS = () => {
+        function calcLGS() {
             let totalPuan = 194.7; 
             let isAnyFilled = false;
 
@@ -610,24 +609,24 @@
             document.getElementById('lgs-val').innerText = Math.min(500, totalPuan).toFixed(3);
             document.getElementById('lgs-explain').innerHTML = `<p>🧠 Toplam Netlere göre <b>Taban Puan + Katsayı Skoru</b> formülü ile öngörülmüştür.</p>`;
             document.getElementById('lgs-sonuc-alan').classList.remove('hidden');
-        };
+        }
 
-        // --- GLOBAL REACTIVITY KÖPRÜSÜ ---
-        const triggerAllCalculations = () => {
+        // --- GLOBAL REACTIVITY KÖPRÜSÜ (GÜNCELLENDİ) ---
+        function triggerAllCalculations() {
             calcTazminat(); calcMaas(); calcSmm(); calcKdv(); calcEco(); calcVergi(); calcLGS();
-        };
+        }
 
-        const bindReactivity = () => {
+        function bindReactivity() {
             document.querySelectorAll('.react-input').forEach(input => {
                 input.removeEventListener('input', handleInputEvent);
                 input.addEventListener('input', handleInputEvent);
             });
-        };
+        }
 
-        const handleInputEvent = () => {
+        function handleInputEvent() {
             triggerAllCalculations();
             saveState();
-        };
+        }
 
         // --- SENARYO SİMÜLASYONU (+%10 Maaş Butonu) ---
         DOM.tazminat.btnSim.addEventListener('click', () => {
