@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 KDV ve Tevkifat Hesaplama | Yasalmetre</title>
+    <meta name="description" content="Fatura keserken güncel %1, %10, %20 KDV oranları ve 2/10 ile 10/10 arası tevkifat kesintilerini anında hesaplayın.">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2476803296366519" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .explain-box { @apply mt-4 p-4 bg-slate-100 border-l-4 border-blue-500 rounded-r-xl text-xs text-slate-700 font-medium space-y-1; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans min-h-screen flex flex-col">
+
+    <header class="bg-blue-900 text-white p-5 shadow-lg border-b-4 border-blue-700">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3">
+            <a href="index.html" class="text-3xl font-black italic tracking-tighter hover:opacity-80 transition">YASALMETRE<span class="text-blue-400">.COM</span></a>
+            <span class="text-[10px] font-bold bg-emerald-600 px-4 py-1.5 rounded-full shadow-inner tracking-widest">2026 GÜNCEL</span>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto p-4 mt-6 w-full flex-grow">
+        
+        <div class="w-full flex justify-center items-center bg-slate-50 border border-slate-300 border-dashed rounded-2xl overflow-hidden min-h-[100px] relative text-center mb-6">
+            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-2476803296366519" data-ad-slot="4391250343" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200">
+            <h1 class="text-xl font-bold text-blue-900 mb-6">KDV & Tevkifat Hesaplama</h1>
+            
+            <form id="form-kdv" class="space-y-4">
+                <div class="flex items-center gap-4 bg-slate-100 p-3 rounded-xl border">
+                    <label class="text-xs font-bold text-slate-700">Tutar Tipi:</label>
+                    <label class="flex items-center gap-1 text-xs cursor-pointer"><input type="radio" name="kdvTipi" value="haric" checked class="react-input"> KDV Hariç</label>
+                    <label class="flex items-center gap-1 text-xs cursor-pointer"><input type="radio" name="kdvTipi" value="dahil" class="react-input"> KDV Dahil</label>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <input type="number" id="kdv-tutar" placeholder="Tutar (TL)" class="w-full border rounded-xl p-3 bg-slate-50 react-input">
+                    <select id="kdv-oran" class="w-full border rounded-xl p-3 bg-white react-input">
+                        <option value="20">%20 KDV</option>
+                        <option value="10">%10 KDV</option>
+                        <option value="1">%1 KDV</option>
+                    </select>
+                </div>
+                <select id="kdv-tev" class="w-full border rounded-xl p-3 bg-white text-sm react-input">
+                    <option value="0">Tevkifat Yok (0/10)</option>
+                    <option value="0.2">2/10 - Yapım İşleri</option>
+                    <option value="0.5">5/10 - Danışmanlık / Tasarım</option>
+                    <option value="0.7">7/10 - Temizlik / Güvenlik</option>
+                    <option value="0.9">9/10 - Reklam / İşgücü Temini</option>
+                    <option value="1">10/10 - Tam Tevkifat</option>
+                </select>
+                <button type="button" onclick="calcKdv()" class="w-full bg-blue-600 text-white font-black py-4 rounded-2xl shadow-lg active:scale-95 transition-transform">HESAPLA</button>
+            </form>
+
+            <div id="kdv-sonuc-alan" class="hidden mt-6">
+                <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-center">
+                    <div class="bg-slate-50 p-3 rounded-lg"><span class="text-[10px] font-bold">KDV</span><p id="kdv-kdv-val" class="font-black text-xs">0 TL</p></div>
+                    <div class="bg-red-50 p-3 rounded-lg"><span class="text-[10px] font-bold text-red-600">KESİNTİ</span><p id="kdv-tev-val" class="font-black text-xs">0 TL</p></div>
+                    <div class="bg-emerald-50 p-3 rounded-lg"><span class="text-[10px] font-bold text-emerald-600">TAHSİL</span><p id="kdv-tahsil-val" class="font-black text-xs">0 TL</p></div>
+                    <div class="bg-blue-50 p-3 rounded-lg"><span class="text-[10px] font-bold text-blue-700">TOPLAM</span><p id="kdv-toplam-val" class="font-black text-xs">0 TL</p></div>
+                </div>
+                <div id="kdv-explain" class="explain-box"></div>
+            </div>
+        </div>
+
+        <div class="w-full flex justify-center items-center bg-slate-50 border border-slate-300 border-dashed rounded-2xl overflow-hidden min-h-[100px] relative text-center my-6">
+            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-2476803296366519" data-ad-slot="8898740483" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <article class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 mt-6 text-slate-700 text-sm leading-relaxed">
+            <h2 class="text-lg font-bold text-blue-900 mb-3">KDV Oranları ve Tevkifat Uygulaması Nedir?</h2>
+            <p class="mb-3">Katma Değer Vergisi (KDV), mal ve hizmet teslimlerinde alıcıdan tahsil edilerek devlete ödenen dolaylı bir vergidir. Türkiye'de genel KDV oranı <strong>%20</strong> olup, temel gıda, tekstil, konaklama gibi spesifik ürün ve hizmet gruplarında <strong>%10</strong> ve <strong>%1</strong> gibi indirimli oranlar uygulanmaktadır.</p>
+            <h3 class="text-md font-bold text-slate-800 mt-4 mb-2">KDV Tevkifatı (Kesintisi) Ne İşe Yarar?</h3>
+            <p>Tevkifat (bölüşme), faturada hesaplanan KDV'nin tamamının satıcıya ödenmeyip, belirli bir oranının (örneğin 5/10, 9/10 vb.) alıcı tarafından doğrudan vergi dairesine ödenmesidir. Devlet bu uygulamayı, vergi güvenliğini sağlamak için özellikle danışmanlık, temizlik, güvenlik ve yapım işleri gibi sektörlerde zorunlu kılmıştır.</p>
+        </article>
+
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 mt-auto py-8 text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <nav class="flex justify-center gap-8 text-[10px] font-black text-slate-600 mb-6 uppercase tracking-widest">
+                <a href="hakkimizda.html" class="hover:text-blue-600 transition">Hakkımızda</a>
+                <a href="gizlilik-politikasi.html" class="hover:text-blue-600 transition">Gizlilik Politikası</a>
+                <a href="iletisim.html" class="hover:text-blue-600 transition">İletişim</a>
+            </nav>
+            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">&copy; 2026 Yasalmetre.com - Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>

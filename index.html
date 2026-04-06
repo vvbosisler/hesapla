@@ -4,34 +4,19 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Yasalmetre | 2026 Profesyonel Hesaplama Araçları</title>
+    <meta name="description" content="2026 yılı güncel Kıdem Tazminatı, KDV, Vergi, SMM, E-Ticaret ve Maaş hesaplama araçları. Şeffaf, ücretsiz ve mevzuata uygun sonuçlar.">
     
-    <meta name="description" content="2026 Kıdem Tazminatı, KDV, Vergi, SMM ve Maaş hesaplama araçları. Şeffaf ve açıklamalı sonuçlar.">
     <meta name="google-adsense-account" content="ca-pub-2476803296366519">
-    <meta name="google-site-verification" content="5ZYW_wydwHNDVsavFF7UkAxsAUnascWt1JSnMRoPiDg" />
-    
+	<meta name="google-site-verification" content="5ZYW_wydwHNDVsavFF7UkAxsAUnascWt1JSnMRoPiDg" />
     <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2476803296366519" crossorigin="anonymous"></script>
 
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <style>
-        .no-scrollbar::-webkit-scrollbar { display: none; }
-        .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
-        .tab-content { display: none; opacity: 0; }
-        .tab-content.active { display: block; opacity: 1; animation: fadeIn 0.3s ease-in; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(5px); } to { opacity: 1; transform: translateY(0); } }
-        .tab-btn { font-weight: 700; color: #64748b; border-bottom: 3px solid transparent; transition: 0.2s; white-space: nowrap; }
-        .tab-btn.active { color: #1e3a8a; border-bottom-color: #2563eb; }
-        .explain-box { @apply mt-4 p-4 bg-slate-100 border-l-4 border-blue-500 rounded-r-xl text-xs text-slate-700 font-medium space-y-1; }
-        .modal { display: none; position: fixed; z-index: 100; left: 0; top: 0; width: 100%; height: 100%; background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(4px); }
-        .modal-content { background: #fff; margin: 10% auto; padding: 2rem; border-radius: 16px; max-width: 500px; animation: slideDown 0.3s ease-out; }
-        @keyframes slideDown { from { transform: translateY(-20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
-    </style>
 </head>
 <body class="bg-slate-50 text-slate-900 font-sans min-h-screen flex flex-col">
 
     <header class="bg-blue-900 text-white p-5 shadow-lg border-b-4 border-blue-700">
         <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3">
-            <h1 class="text-3xl font-black italic tracking-tighter">YASALMETRE<span class="text-blue-400">.COM</span></h1>
+            <a href="index.html" class="text-3xl font-black italic tracking-tighter hover:opacity-80 transition">YASALMETRE<span class="text-blue-400">.COM</span></a>
             <span class="text-[10px] font-bold bg-emerald-600 px-4 py-1.5 rounded-full shadow-inner tracking-widest">2026 GÜNCEL</span>
         </div>
     </header>
@@ -40,608 +25,91 @@
         ⚠️ Yasal Uyarı: Bu araçlardaki formüller bilgi amaçlıdır, kesin hukuki danışmanlık veya resmi belge niteliği taşımaz.
     </div>
 
-    <main class="max-w-4xl mx-auto p-4 mt-4 w-full flex-grow">
+    <main class="max-w-4xl mx-auto p-4 mt-6 w-full flex-grow">
         
-        <div class="w-full flex justify-center items-center bg-slate-50 border border-slate-300 border-dashed rounded-2xl overflow-hidden min-h-[100px] relative text-center mb-6">
-            <span class="text-[10px] text-slate-400 font-bold uppercase tracking-widest absolute z-0">Sponsorlu Bağlantı</span>
-            <ins class="adsbygoogle relative z-10"
-                 style="display:block; width:100%;"
-                 data-ad-client="ca-pub-2476803296366519"
-                 data-ad-slot="3796939733"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
+        <div class="w-full flex justify-center items-center bg-slate-50 border border-slate-300 border-dashed rounded-2xl overflow-hidden min-h-[100px] relative text-center mb-10">
+            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-2476803296366519" data-ad-slot="3796939733" data-ad-format="auto" data-full-width-responsive="true"></ins>
             <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
         </div>
 
-        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200">
+        <div class="text-center mb-10">
+            <h1 class="text-3xl md:text-4xl font-black text-blue-900 mb-4">Finansal ve Yasal Hesaplamalarınızı Anında Yapın</h1>
+            <p class="text-slate-600 text-sm md:text-base max-w-2xl mx-auto leading-relaxed">
+                Yasalmetre, 2026 yılı güncel mevzuatlarına ve oranlarına uygun olarak tasarlanmış ücretsiz bir Legal-Tech portalıdır. İhtiyacınız olan aracı seçerek karmaşık formüllerle uğraşmadan doğru sonuçlara ulaşın.
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-12">
             
-            <nav class="flex overflow-x-auto no-scrollbar gap-6 border-b border-slate-100 mb-8 pb-3" id="tabNav">
-                <button data-target="tazminatTab" class="tab-btn active">Kıdem İhbar</button>
-                <button data-target="maasTab" class="tab-btn">Maaş Analizi</button>
-                <button data-target="smmTab" class="tab-btn">SMM Makbuzu</button>
-                <button data-target="kdvTab" class="tab-btn">KDV Tevkifat</button>
-                <button data-target="eticaretTab" class="tab-btn">E-Ticaret</button>
-                <button data-target="vergiTab" class="tab-btn">Şirket Vergisi</button>
-                <button data-target="lgsTab" class="tab-btn text-blue-600">LGS Puanı</button>
-            </nav>
-            
-            <section id="tazminatTab" class="tab-content active">
-                <div class="flex justify-between items-center mb-6">
-                    <h2 class="text-xl font-bold text-blue-900">Kıdem ve İhbar Tazminatı</h2>
-                    <button type="button" id="btnSimTazminat" class="text-xs bg-emerald-100 text-emerald-800 font-bold px-3 py-1.5 rounded-lg hover:bg-emerald-200 transition">+ %10 Maaş Simülasyonu</button>
-                </div>
-                <form id="form-tazminat" class="space-y-4">
-                    <div class="grid grid-cols-2 gap-4">
-                        <div><label class="text-[10px] font-bold text-slate-500 uppercase">Giriş Tarihi</label><input type="date" id="taz-giris" class="w-full border rounded-xl p-3 bg-slate-50 react-input"></div>
-                        <div><label class="text-[10px] font-bold text-slate-500 uppercase">Çıkış Tarihi</label><input type="date" id="taz-cikis" class="w-full border rounded-xl p-3 bg-slate-50 react-input"></div>
-                    </div>
-                    <div>
-                        <label class="text-[10px] font-bold text-slate-500 uppercase">Brüt Maaş (TL)</label>
-                        <input type="number" id="taz-maas" placeholder="Örn: 50000" class="w-full border rounded-xl p-3 bg-slate-50 react-input">
-                    </div>
-                    <button type="button" onclick="triggerAllCalculations()" class="w-full bg-blue-600 text-white font-black py-4 rounded-2xl shadow-lg active:scale-95 transition-transform">HESAPLA</button>
-                </form>
-                <div id="taz-sonuc-alan" class="hidden mt-6">
-                    <div class="grid grid-cols-2 gap-4 text-center">
-                        <div class="bg-blue-50 p-4 rounded-xl border border-blue-100"><span class="text-[10px] font-bold text-blue-700 uppercase">Kıdem Tazminatı</span><p id="taz-kidem-val" class="text-2xl font-black text-blue-900 mt-1">0 TL</p></div>
-                        <div class="bg-emerald-50 p-4 rounded-xl border border-emerald-100"><span class="text-[10px] font-bold text-emerald-700 uppercase">İhbar Tazminatı</span><p id="taz-ihbar-val" class="text-2xl font-black text-emerald-900 mt-1">0 TL</p></div>
-                    </div>
-                    <div id="taz-explain" class="explain-box"></div>
-                </div>
-            </section>
+            <a href="kidem-tazminati.html" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md hover:border-blue-300 transition group block cursor-pointer">
+                <div class="bg-blue-50 text-blue-700 w-12 h-12 rounded-xl flex items-center justify-center font-black text-xl mb-4 group-hover:scale-110 transition">💼</div>
+                <h2 class="text-lg font-bold text-slate-800 mb-2">Kıdem ve İhbar Tazminatı</h2>
+                <p class="text-xs text-slate-500 mb-4">4857 sayılı İş Kanunu'na göre yasal haklarınızı anında hesaplayın.</p>
+                <span class="text-xs font-bold text-blue-600 uppercase">Araca Git &rarr;</span>
+            </a>
 
-            <section id="maasTab" class="tab-content">
-                <h2 class="text-xl font-bold mb-6 text-blue-900">Maaş Analizi (Net ↔ Brüt)</h2>
-                <form id="form-maas" class="space-y-4">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label class="text-[10px] font-bold text-slate-500 uppercase">Hesap Yönü</label>
-                            <select id="maas-yon" class="w-full border rounded-xl p-3 bg-white react-input"><option value="bruttenNete">Brütten Nete</option><option value="nettenBrute">Netten Brüte</option></select>
-                        </div>
-                        <div>
-                            <label class="text-[10px] font-bold text-slate-500 uppercase">Tutar (TL)</label>
-                            <input type="number" id="maas-tutar" placeholder="Örn: 50000" class="w-full border rounded-xl p-3 bg-slate-50 react-input">
-                        </div>
-                    </div>
-                    <button type="button" onclick="triggerAllCalculations()" class="w-full bg-blue-600 text-white font-black py-4 rounded-2xl shadow-lg active:scale-95 transition-transform">HESAPLA</button>
-                </form>
-                <div id="maas-sonuc-alan" class="hidden mt-6">
-                    <div class="grid grid-cols-2 gap-3 text-center">
-                        <div class="bg-blue-50 p-3 rounded-xl border"><span class="text-[10px] font-bold text-blue-700 uppercase">Net Ele Geçen</span><p id="maas-net-val" class="text-xl font-black text-blue-900">0 TL</p></div>
-                        <div class="bg-slate-50 p-3 rounded-xl border"><span class="text-[10px] font-bold text-slate-600 uppercase">Brüt Maliyet</span><p id="maas-brut-val" class="text-xl font-black text-slate-900">0 TL</p></div>
-                    </div>
-                    <div id="maas-explain" class="explain-box"></div>
-                </div>
-            </section>
+            <a href="maas-analizi.html" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md hover:border-blue-300 transition group block cursor-pointer">
+                <div class="bg-emerald-50 text-emerald-700 w-12 h-12 rounded-xl flex items-center justify-center font-black text-xl mb-4 group-hover:scale-110 transition">💰</div>
+                <h2 class="text-lg font-bold text-slate-800 mb-2">Maaş Analizi (Net ↔ Brüt)</h2>
+                <p class="text-xs text-slate-500 mb-4">Maaşınızın netten brüte veya brütten nete detaylı analizini yapın.</p>
+                <span class="text-xs font-bold text-blue-600 uppercase">Araca Git &rarr;</span>
+            </a>
 
-            <section id="smmTab" class="tab-content">
-                <h2 class="text-xl font-bold mb-6 text-blue-900">Serbest Meslek Makbuzu (SMM)</h2>
-                <form id="form-smm" class="space-y-4">
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label class="text-[10px] font-bold text-slate-500 uppercase">Hesap Yönü</label>
-                            <select id="smm-yon" class="w-full border rounded-xl p-3 bg-white react-input"><option value="brut">Brütten Nete</option><option value="net">Netten Brüte</option></select>
-                        </div>
-                        <div>
-                            <label class="text-[10px] font-bold text-slate-500 uppercase">Tutar (TL)</label>
-                            <input type="number" id="smm-tutar" placeholder="Örn: 15000" class="w-full border rounded-xl p-3 bg-slate-50 react-input">
-                        </div>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div>
-                            <label class="text-[10px] font-bold text-slate-500 uppercase">Stopaj Oranı</label>
-                            <select id="smm-stopaj" class="w-full border rounded-xl p-3 bg-white react-input"><option value="20">%20 (Standart)</option><option value="0">%0 (Muaf)</option></select>
-                        </div>
-                        <div>
-                            <label class="text-[10px] font-bold text-slate-500 uppercase">KDV Oranı</label>
-                            <select id="smm-kdv" class="w-full border rounded-xl p-3 bg-white react-input"><option value="20">%20 (Standart)</option><option value="10">%10</option><option value="0">%0</option></select>
-                        </div>
-                    </div>
-                    <button type="button" onclick="triggerAllCalculations()" class="w-full bg-slate-800 text-white font-black py-4 rounded-2xl shadow-lg active:scale-95 transition-transform">MAKBUZ HESAPLA</button>
-                </form>
-                <div id="smm-sonuc-alan" class="hidden mt-6">
-                    <div class="p-6 bg-slate-900 text-white rounded-3xl space-y-3 shadow-xl">
-                        <div class="flex justify-between border-b border-slate-700 pb-2"><span class="text-xs text-slate-400">Brüt Ücret:</span><span id="smm-res-brut" class="font-bold">0 TL</span></div>
-                        <div class="flex justify-between border-b border-slate-700 pb-2"><span class="text-xs text-slate-400">Stopaj Kesintisi (-):</span><span id="smm-res-stopaj" class="text-red-400 font-bold">0 TL</span></div>
-                        <div class="flex justify-between border-b border-slate-700 pb-2"><span class="text-xs text-slate-400">Hesaplanan KDV (+):</span><span id="smm-res-kdv" class="text-blue-400 font-bold">0 TL</span></div>
-                        <div class="flex justify-between text-xl font-black text-emerald-400 pt-2 uppercase"><span>Net Tahsilat:</span><span id="smm-res-net">0 TL</span></div>
-                    </div>
-                    <div id="smm-explain" class="explain-box"></div>
-                </div>
-            </section>
+            <a href="smm-makbuzu.html" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md hover:border-blue-300 transition group block cursor-pointer">
+                <div class="bg-purple-50 text-purple-700 w-12 h-12 rounded-xl flex items-center justify-center font-black text-xl mb-4 group-hover:scale-110 transition">🧾</div>
+                <h2 class="text-lg font-bold text-slate-800 mb-2">Serbest Meslek Makbuzu</h2>
+                <p class="text-xs text-slate-500 mb-4">Stopaj ve KDV dahil/hariç tüm makbuz kalemlerinizi oluşturun.</p>
+                <span class="text-xs font-bold text-blue-600 uppercase">Araca Git &rarr;</span>
+            </a>
 
-            <section id="kdvTab" class="tab-content">
-                <h2 class="text-xl font-bold mb-6 text-blue-900">KDV & Tevkifat</h2>
-                <form id="form-kdv" class="space-y-4">
-                    <div class="flex items-center gap-4 bg-slate-100 p-3 rounded-xl border">
-                        <label class="text-xs font-bold text-slate-700">Tutar Tipi:</label>
-                        <label class="flex items-center gap-1 text-xs cursor-pointer"><input type="radio" name="kdvTipi" value="haric" checked class="react-input"> KDV Hariç</label>
-                        <label class="flex items-center gap-1 text-xs cursor-pointer"><input type="radio" name="kdvTipi" value="dahil" class="react-input"> KDV Dahil</label>
-                    </div>
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <input type="number" id="kdv-tutar" placeholder="Tutar (TL)" class="w-full border rounded-xl p-3 bg-slate-50 react-input">
-                        <select id="kdv-oran" class="w-full border rounded-xl p-3 bg-white react-input"><option value="20">%20 KDV</option><option value="10">%10 KDV</option><option value="1">%1 KDV</option></select>
-                    </div>
-                    <select id="kdv-tev" class="w-full border rounded-xl p-3 bg-white text-sm react-input">
-                        <option value="0">Tevkifat Yok (0/10)</option>
-                        <option value="0.2">2/10 - Yapım İşleri</option>
-                        <option value="0.5">5/10 - Danışmanlık / Tasarım</option>
-                        <option value="0.7">7/10 - Temizlik / Güvenlik</option>
-                        <option value="0.9">9/10 - Reklam / İşgücü Temini</option>
-                        <option value="1">10/10 - Tam Tevkifat</option>
-                    </select>
-                    <button type="button" onclick="triggerAllCalculations()" class="w-full bg-blue-600 text-white font-black py-4 rounded-2xl shadow-lg active:scale-95 transition-transform">HESAPLA</button>
-                </form>
-                <div id="kdv-sonuc-alan" class="hidden mt-6">
-                    <div class="grid grid-cols-2 md:grid-cols-4 gap-2 text-center">
-                        <div class="bg-slate-50 p-3 rounded-lg"><span class="text-[10px] font-bold">KDV</span><p id="kdv-kdv-val" class="font-black text-xs">0 TL</p></div>
-                        <div class="bg-red-50 p-3 rounded-lg"><span class="text-[10px] font-bold text-red-600">KESİNTİ</span><p id="kdv-tev-val" class="font-black text-xs">0 TL</p></div>
-                        <div class="bg-emerald-50 p-3 rounded-lg"><span class="text-[10px] font-bold text-emerald-600">TAHSİL</span><p id="kdv-tahsil-val" class="font-black text-xs">0 TL</p></div>
-                        <div class="bg-blue-50 p-3 rounded-lg"><span class="text-[10px] font-bold text-blue-700">TOPLAM</span><p id="kdv-toplam-val" class="font-black text-xs">0 TL</p></div>
-                    </div>
-                    <div id="kdv-explain" class="explain-box"></div>
-                </div>
-            </section>
+            <a href="kdv-tevkifat.html" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md hover:border-blue-300 transition group block cursor-pointer">
+                <div class="bg-orange-50 text-orange-700 w-12 h-12 rounded-xl flex items-center justify-center font-black text-xl mb-4 group-hover:scale-110 transition">⚖️</div>
+                <h2 class="text-lg font-bold text-slate-800 mb-2">KDV ve Tevkifat</h2>
+                <p class="text-xs text-slate-500 mb-4">Fatura keserken güncel tevkifat oranlarına göre kesintileri bulun.</p>
+                <span class="text-xs font-bold text-blue-600 uppercase">Araca Git &rarr;</span>
+            </a>
 
-            <section id="eticaretTab" class="tab-content">
-                <h2 class="text-xl font-bold mb-6 text-blue-900">E-Ticaret Kâr Simülasyonu</h2>
-                <form id="form-eticaret" class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                    <input type="number" id="eco-satis" placeholder="Satış Fiyatı (TL)" class="w-full border rounded-xl p-3 bg-slate-50 react-input">
-                    <input type="number" id="eco-maliyet" placeholder="Ürün Maliyeti (TL)" class="w-full border rounded-xl p-3 bg-slate-50 react-input">
-                    <input type="number" id="eco-komisyon" placeholder="Pazaryeri Komisyon %" class="w-full border rounded-xl p-3 bg-slate-50 react-input">
-                    <input type="number" id="eco-kargo" placeholder="Kargo ve Giderler (TL)" class="w-full border rounded-xl p-3 bg-slate-50 react-input">
-                    <button type="button" onclick="triggerAllCalculations()" class="md:col-span-2 w-full bg-indigo-600 text-white font-black py-4 rounded-2xl shadow-lg active:scale-95 transition-transform">KÂR ANALİZİ YAP</button>
-                </form>
-                <div id="eco-sonuc-alan" class="hidden mt-6 p-6 rounded-2xl text-center border transition-all">
-                    <span class="text-xs font-bold uppercase tracking-widest" id="eco-title">Net Kâr Durumu</span>
-                    <p id="eco-net-val" class="text-4xl font-black my-2">0 TL</p>
-                    <div id="eco-explain" class="text-xs font-medium opacity-80 mt-2 space-y-1"></div>
-                </div>
-            </section>
+            <a href="eticaret-kar.html" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md hover:border-blue-300 transition group block cursor-pointer">
+                <div class="bg-cyan-50 text-cyan-700 w-12 h-12 rounded-xl flex items-center justify-center font-black text-xl mb-4 group-hover:scale-110 transition">🛒</div>
+                <h2 class="text-lg font-bold text-slate-800 mb-2">E-Ticaret Kâr Simülasyonu</h2>
+                <p class="text-xs text-slate-500 mb-4">Pazaryeri komisyonları ve kargo giderleri sonrası net kârınızı görün.</p>
+                <span class="text-xs font-bold text-blue-600 uppercase">Araca Git &rarr;</span>
+            </a>
 
-            <section id="vergiTab" class="tab-content">
-                <h2 class="text-xl font-bold mb-6 text-blue-900">Şahıs Şirketi Vergi Optimizasyonu</h2>
-                <form id="form-vergi" class="space-y-4">
-                    <div class="grid grid-cols-2 gap-4">
-                        <input type="number" id="vergi-gelir" placeholder="Yıllık Gelir (TL)" class="w-full border rounded-xl p-3 bg-slate-50 react-input">
-                        <input type="number" id="vergi-gider" placeholder="Yıllık Gider (TL)" class="w-full border rounded-xl p-3 bg-slate-50 react-input">
-                    </div>
-                    <div class="flex items-center p-3 bg-amber-50 rounded-xl border">
-                        <input type="checkbox" id="vergi-genc" class="mr-2 react-input">
-                        <label class="text-[10px] font-bold text-amber-900">Genç Girişimci İstisnası (İlk 3 yıl vergi muafiyeti kotası uygulanır)</label>
-                    </div>
-                    <button type="button" onclick="triggerAllCalculations()" class="w-full bg-red-600 text-white font-black py-4 rounded-2xl shadow-lg active:scale-95 transition-transform">HESAPLA</button>
-                </form>
-                <div id="vergi-sonuc-alan" class="hidden mt-6">
-                    <div class="p-6 bg-red-50 rounded-2xl text-center border border-red-100">
-                        <span class="text-xs font-bold text-red-700 uppercase">Tahmini Yıllık Gelir Vergisi</span>
-                        <p id="vergi-val" class="text-4xl font-black text-red-900 my-2">0 TL</p>
-                    </div>
-                    <div id="vergi-explain" class="explain-box"></div>
-                </div>
-            </section>
+            <a href="sirket-vergisi.html" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md hover:border-blue-300 transition group block cursor-pointer">
+                <div class="bg-red-50 text-red-700 w-12 h-12 rounded-xl flex items-center justify-center font-black text-xl mb-4 group-hover:scale-110 transition">🏢</div>
+                <h2 class="text-lg font-bold text-slate-800 mb-2">Şahıs Şirketi Vergisi</h2>
+                <p class="text-xs text-slate-500 mb-4">Yıllık gelir ve giderinize göre tahmini gelir verginizi (istisnalı) hesaplayın.</p>
+                <span class="text-xs font-bold text-blue-600 uppercase">Araca Git &rarr;</span>
+            </a>
 
-            <section id="lgsTab" class="tab-content">
-                <h2 class="text-xl font-bold text-center text-blue-900 mb-2">LGS Puan Hesaplama</h2>
-                <div class="text-[10px] text-center text-slate-500 mb-6 uppercase font-bold bg-slate-100 py-1 rounded">Resmi değildir, katsayı tahminidir</div>
-                <div class="space-y-2" id="form-lgs">
-                    <div class="grid grid-cols-4 gap-2 px-2 text-[10px] font-black text-slate-400 text-center">
-                        <div class="text-left">DERS</div><div>DOĞRU</div><div>YANLIŞ</div><div>NET</div>
-                    </div>
-                    <div id="lgs-dersler-container"></div>
-                    <button type="button" onclick="triggerAllCalculations()" class="w-full bg-blue-600 text-white font-black py-4 rounded-2xl shadow-lg mt-4 uppercase active:scale-95 transition-transform">PUANIMI HESAPLA</button>
-                </div>
-                <div id="lgs-sonuc-alan" class="hidden mt-6 text-center bg-blue-50 p-6 rounded-3xl border border-blue-100">
-                    <span class="text-[10px] font-black uppercase text-blue-600">Tahmini LGS Puanı</span>
-                    <p id="lgs-val" class="text-5xl font-black text-blue-900 mt-2">0.000</p>
-                    <div id="lgs-explain" class="mt-4 text-[10px] text-slate-600 font-medium space-y-1"></div>
-                </div>
-            </section>
-
+            <a href="lgs-puani.html" class="bg-white p-6 rounded-2xl shadow-sm border border-slate-200 hover:shadow-md hover:border-blue-300 transition group block cursor-pointer">
+                <div class="bg-indigo-50 text-indigo-700 w-12 h-12 rounded-xl flex items-center justify-center font-black text-xl mb-4 group-hover:scale-110 transition">🎓</div>
+                <h2 class="text-lg font-bold text-slate-800 mb-2">LGS Puan Hesaplama</h2>
+                <p class="text-xs text-slate-500 mb-4">Netlerinizi girerek MEB katsayılarına göre tahmini LGS yerleştirme puanınızı bulun.</p>
+                <span class="text-xs font-bold text-blue-600 uppercase">Araca Git &rarr;</span>
+            </a>
         </div>
 
-        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 mt-6 mb-6">
-            <h2 class="text-xl font-bold text-blue-900 mb-4">Sıkça Sorulan Sorular & Hesaplama Rehberi</h2>
-            <div class="space-y-4 text-sm text-slate-700 leading-relaxed">
-                <div>
-                    <h3 class="font-bold text-slate-900">Kıdem Tazminatı Nasıl Hesaplanır?</h3>
-                    <p>Kıdem tazminatı, çalışanın işyerinde geçirdiği her tam yıl için bir aylık brüt ücreti tutarında ödenen yasal bir haktır. 2026 yılı güncel verilerine göre hesaplama yapılırken, çalışanın son brüt maaşı ve çalışma süresi (yıl, ay, gün) dikkate alınır. 1 yıldan az çalışma süreleri için kıdem tazminatı ödenmez.</p>
-                </div>
-                <div>
-                    <h3 class="font-bold text-slate-900">SMM (Serbest Meslek Makbuzu) Kesintileri Nelerdir?</h3>
-                    <p>Avukat, doktor, mimar ve mali müşavir gibi serbest meslek erbapları hizmet verdiklerinde SMM düzenler. Bu makbuzda genellikle %20 oranında Gelir Vergisi Stopajı kaynağında kesilir ve %20 (veya %10) KDV eklenerek müşteriden tahsil edilecek net tutar bulunur. Yasalmetre ile brütten nete veya netten brüte tüm SMM hesaplamalarınızı anında yapabilirsiniz.</p>
-                </div>
-                <div>
-                    <h3 class="font-bold text-slate-900">Genç Girişimci İstisnası Nedir?</h3>
-                    <p>29 yaş altındaki şahıs şirketi kurucuları, yasal şartları sağlamaları halinde 3 yıl boyunca belirli bir tutara kadar gelir vergisinden muaf tutulurlar. Şirket vergisi hesaplama aracımız, bu istisnayı dikkate alarak size en doğru ödenecek vergi tahminini sunar.</p>
-                </div>
-                <div>
-                    <h3 class="font-bold text-slate-900">KDV Tevkifatı Hangi İşlemlerde Uygulanır?</h3>
-                    <p>KDV tevkifatı, faturadaki KDV tutarının bir kısmının veya tamamının (örneğin 2/10, 5/10, 9/10) alıcı tarafından devlete ödenmesi işlemidir. Temizlik, güvenlik, danışmanlık ve yapım işleri gibi spesifik sektörlerde oranlar değişiklik gösterir.</p>
-                </div>
-            </div>
-        </div>
-        
-        <div class="w-full flex justify-center items-center bg-slate-50 border border-slate-300 border-dashed rounded-2xl overflow-hidden min-h-[100px] relative text-center mt-6 mb-6">
-            <span class="text-[10px] text-slate-400 font-bold uppercase tracking-widest absolute z-0">Sponsorlu Bağlantı</span>
-            <ins class="adsbygoogle relative z-10"
-                 style="display:block; width:100%;"
-                 data-ad-client="ca-pub-2476803296366519"
-                 data-ad-slot="3761147262"
-                 data-ad-format="auto"
-                 data-full-width-responsive="true"></ins>
-            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
-        </div>
+        <article class="bg-white p-8 rounded-3xl shadow-sm border border-slate-200 text-slate-700 text-sm leading-relaxed mb-8">
+            <h2 class="text-xl font-bold text-blue-900 mb-4">Neden Yasalmetre'yi Kullanmalısınız?</h2>
+            <p class="mb-4">Ticari hayatın ve bireysel çalışma süreçlerinin giderek karmaşıklaştığı günümüzde, yasal oranlara hakim olmak büyük önem taşır. Yasalmetre, muhasebeci veya avukat tutmadan önce durumunuzu analiz etmenizi sağlayan <strong>ücretsiz hesaplama araçları</strong> sunar.</p>
+            <h3 class="text-lg font-bold text-slate-800 mb-2">Tüm Veriler 2026 Yılına Uygun Güncellenmiştir</h3>
+            <p>Gelir vergisi dilimleri, KDV oranları ve asgari ücrete bağlı değişen kıdem tazminatı tavanı her yıl güncellenmektedir. Sitemizdeki tüm algoritmalar 2026 yılı Resmi Gazete verileri baz alınarak revize edilmiştir. Hesaplamalar tarayıcınız üzerinde (Local) gerçekleşir; kişisel verileriniz hiçbir sunucuda saklanmaz.</p>
+        </article>
 
     </main>
 
-    <footer class="bg-white border-t border-slate-200 mt-6 py-8 text-center">
+    <footer class="bg-white border-t border-slate-200 py-8 text-center mt-auto">
         <div class="max-w-4xl mx-auto px-6">
-            <nav class="flex justify-center gap-8 text-[10px] font-black text-slate-600 mb-6 uppercase tracking-widest">
-                <button onclick="openModal('modalHakkimizda')" class="hover:text-blue-600 transition">Hakkımızda</button>
-                <button onclick="openModal('modalGizlilik')" class="hover:text-blue-600 transition">Gizlilik Sözleşmesi</button>
-                <button onclick="openModal('modalIletisim')" class="hover:text-blue-600 transition">İletişim</button>
+            <nav class="flex flex-wrap justify-center gap-6 text-[10px] font-black text-slate-600 mb-6 uppercase tracking-widest">
+                <a href="hakkimizda.html" class="hover:text-blue-600 transition">Hakkımızda</a>
+                <a href="gizlilik-politikasi.html" class="hover:text-blue-600 transition">Gizlilik Politikası</a>
+                <a href="iletisim.html" class="hover:text-blue-600 transition">İletişim</a>
             </nav>
             <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">&copy; 2026 Yasalmetre.com - Tüm Hakları Saklıdır.</p>
         </div>
     </footer>
 
-    <div id="modalHakkimizda" class="modal" onclick="closeModal('modalHakkimizda')">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="font-black text-xl text-blue-900 uppercase">Hakkımızda</h2>
-                <button onclick="closeModal('modalHakkimizda')" class="text-slate-400 hover:text-red-500 text-2xl leading-none font-bold">&times;</button>
-            </div>
-            <p class="text-sm text-slate-700 leading-relaxed">Yasalmetre.com, 2026 yılı güncel mevzuat ve oranlarına uygun olarak hazırlanmış, ücretsiz ve şeffaf sonuçlar sunan bir Legal-Tech hesaplama portalıdır. Amacımız, karmaşık vergi, tazminat ve ticari hesaplamaları herkes için anlaşılır kılmaktır.</p>
-        </div>
-    </div>
-
-    <div id="modalGizlilik" class="modal" onclick="closeModal('modalGizlilik')">
-        <div class="modal-content" onclick="event.stopPropagation()">
-            <div class="flex justify-between items-center mb-4">
-                <h2 class="font-black text-xl text-blue-900 uppercase">Gizlilik Sözleşmesi</h2>
-                <button onclick="closeModal('modalGizlilik')" class="text-slate-400 hover:text-red-500 text-2xl leading-none font-bold">&times;</button>
-            </div>
-            <p class="text-sm text-slate-700 leading-relaxed">Sistemimize girdiğiniz hiçbir veri sunucularımızda <strong>saklanmaz</strong>. Tüm hesaplamalar anlık olarak kendi tarayıcınız (Local) üzerinde gerçekleşir. Sitemiz, Google AdSense politikalarına tam uyumlu olarak hizmet kalitesini artırmak için anonim çerezler kullanır.</p>
-        </div>
-    </div>
-
-    <div id="modalIletisim" class="modal" onclick="closeModal('modalIletisim')">
-        <div class="modal-content text-center" onclick="event.stopPropagation()">
-            <div class="flex justify-end mb-2">
-                <button onclick="closeModal('modalIletisim')" class="text-slate-400 hover:text-red-500 text-2xl leading-none font-bold">&times;</button>
-            </div>
-            <h2 class="font-black text-xl text-blue-900 mb-4 uppercase">İletişim</h2>
-            <p class="text-sm text-slate-600 mb-6">Görüş, öneri veya reklam talepleriniz için bize ulaşabilirsiniz:</p>
-            <a href="mailto:info@yasalmetre.com" class="text-blue-600 font-black text-lg bg-blue-50 px-6 py-4 rounded-xl inline-block border border-blue-100 hover:bg-blue-100 transition">info@yasalmetre.com</a>
-        </div>
-    </div>
-
-    <script>
-        // --- CORE YAPI & UTILS ---
-        const fmt = new Intl.NumberFormat('tr-TR', { style: 'currency', currency: 'TRY' });
-        const num = (val) => isNaN(parseFloat(val)) ? 0 : parseFloat(val);
-        
-        // Cache DOM Query'leri
-        const DOM = {
-            navBtns: document.querySelectorAll('.tab-btn'),
-            tabs: document.querySelectorAll('.tab-content'),
-            tazminat: {
-                g: document.getElementById('taz-giris'), c: document.getElementById('taz-cikis'), m: document.getElementById('taz-maas'),
-                resKidem: document.getElementById('taz-kidem-val'), resIhbar: document.getElementById('taz-ihbar-val'),
-                exp: document.getElementById('taz-explain'), alan: document.getElementById('taz-sonuc-alan'),
-                btnSim: document.getElementById('btnSimTazminat')
-            },
-            maas: {
-                y: document.getElementById('maas-yon'), t: document.getElementById('maas-tutar'),
-                resNet: document.getElementById('maas-net-val'), resBrut: document.getElementById('maas-brut-val'),
-                exp: document.getElementById('maas-explain'), alan: document.getElementById('maas-sonuc-alan')
-            },
-            smm: {
-                y: document.getElementById('smm-yon'), t: document.getElementById('smm-tutar'),
-                s: document.getElementById('smm-stopaj'), k: document.getElementById('smm-kdv'),
-                resBrut: document.getElementById('smm-res-brut'), resStopaj: document.getElementById('smm-res-stopaj'),
-                resKdv: document.getElementById('smm-res-kdv'), resNet: document.getElementById('smm-res-net'),
-                exp: document.getElementById('smm-explain'), alan: document.getElementById('smm-sonuc-alan')
-            },
-            kdv: {
-                t: document.getElementById('kdv-tutar'), o: document.getElementById('kdv-oran'), tev: document.getElementById('kdv-tev'),
-                tip: document.getElementsByName('kdvTipi'),
-                resKdv: document.getElementById('kdv-kdv-val'), resTev: document.getElementById('kdv-tev-val'),
-                resTahsil: document.getElementById('kdv-tahsil-val'), resTop: document.getElementById('kdv-toplam-val'),
-                exp: document.getElementById('kdv-explain'), alan: document.getElementById('kdv-sonuc-alan')
-            },
-            eco: {
-                s: document.getElementById('eco-satis'), m: document.getElementById('eco-maliyet'), k: document.getElementById('eco-komisyon'), kg: document.getElementById('eco-kargo'),
-                resNet: document.getElementById('eco-net-val'), exp: document.getElementById('eco-explain'), alan: document.getElementById('eco-sonuc-alan')
-            },
-            vergi: {
-                gel: document.getElementById('vergi-gelir'), gid: document.getElementById('vergi-gider'), genc: document.getElementById('vergi-genc'),
-                resVergi: document.getElementById('vergi-val'), exp: document.getElementById('vergi-explain'), alan: document.getElementById('vergi-sonuc-alan')
-            }
-        };
-
-        // --- LOCAL STORAGE (STATE YÖNETİMİ) ---
-        function saveState() {
-            const state = {};
-            document.querySelectorAll('.react-input').forEach(input => {
-                if (input.type === 'checkbox' || input.type === 'radio') {
-                    if(input.checked) state[input.id || input.name] = input.value || true;
-                } else {
-                    state[input.id] = input.value;
-                }
-            });
-            localStorage.setItem('yasalmetre_state', JSON.stringify(state));
-        }
-
-        function loadState() {
-            const state = JSON.parse(localStorage.getItem('yasalmetre_state')) || {};
-            document.querySelectorAll('.react-input').forEach(input => {
-                if (input.type === 'checkbox') {
-                    if (state[input.id]) input.checked = true;
-                } else if (input.type === 'radio') {
-                    if (state[input.name] === input.value) input.checked = true;
-                } else {
-                    if (state[input.id]) input.value = state[input.id];
-                }
-            });
-            triggerAllCalculations(); 
-        }
-
-        // --- TAB & MODAL YÖNETİMİ ---
-        document.getElementById('tabNav').addEventListener('click', (e) => {
-            if(e.target.tagName === 'BUTTON') {
-                DOM.navBtns.forEach(b => b.classList.remove('active'));
-                DOM.tabs.forEach(t => t.classList.remove('active'));
-                e.target.classList.add('active');
-                document.getElementById(e.target.dataset.target).classList.add('active');
-            }
-        });
-
-        function openModal(id) { document.getElementById(id).style.display = 'block'; }
-        function closeModal(id) { document.getElementById(id).style.display = 'none'; }
-
-        // --- HESAPLAMA MOTORLARI ---
-        function calcTazminat() {
-            try {
-                if(!DOM.tazminat.g.value || !DOM.tazminat.c.value || !DOM.tazminat.m.value) return DOM.tazminat.alan.classList.add('hidden');
-                
-                const giris = new Date(DOM.tazminat.g.value);
-                const cikis = new Date(DOM.tazminat.c.value);
-                const maas = num(DOM.tazminat.m.value);
-                
-                if (cikis <= giris || maas <= 0) throw new Error("Hatalı veri");
-
-                const diffDays = Math.floor((cikis - giris) / (1000 * 60 * 60 * 24));
-                const years = diffDays / 365.25;
-                
-                const kidem = years >= 1 ? years * maas : 0;
-                
-                let ihbarHafta = 0;
-                if(diffDays < 180) ihbarHafta = 2;
-                else if(diffDays < 540) ihbarHafta = 4;
-                else if(diffDays < 1080) ihbarHafta = 6;
-                else ihbarHafta = 8;
-
-                const ihbar = (maas / 30) * (ihbarHafta * 7);
-
-                DOM.tazminat.resKidem.innerText = fmt.format(kidem);
-                DOM.tazminat.resIhbar.innerText = fmt.format(ihbar);
-                
-                DOM.tazminat.exp.innerHTML = `
-                    <p>📅 <b>Çalışma Süresi:</b> ${Math.floor(years)} Yıl, ${diffDays % 365} Gün</p>
-                    <p>⚖️ <b>Kıdem Formülü:</b> ${years >= 1 ? `Çalışılan Yıl (${years.toFixed(2)}) × Brüt Maaş` : '1 Yılı doldurmadığı için hak kazanılmadı.'}</p>
-                    <p>⏳ <b>İhbar Süresi:</b> İş kanunu gereği ${ihbarHafta} Hafta üzerinden hesaplandı.</p>
-                `;
-                DOM.tazminat.alan.classList.remove('hidden');
-            } catch (e) { DOM.tazminat.alan.classList.add('hidden'); }
-        }
-
-        function calcMaas() {
-            try {
-                const yon = DOM.maas.y.value;
-                const tutar = num(DOM.maas.t.value);
-                if(tutar <= 0) return DOM.maas.alan.classList.add('hidden');
-
-                let brut = yon === "bruttenNete" ? tutar : tutar / 0.72;
-                let net = brut * 0.72;
-
-                DOM.maas.resNet.innerText = fmt.format(net);
-                DOM.maas.resBrut.innerText = fmt.format(brut);
-                
-                DOM.maas.exp.innerHTML = `
-                    <p>🧮 <b>Matematiksel Model:</b> ${yon === 'bruttenNete' ? 'Brütten Nete tahmini %28 kesinti' : 'Netten Brüte brütleştirme katsayısı'} kullanıldı.</p>
-                    <p>📌 <i>Not: Özel vergi dilimi, eş durumu gibi parametreler hariç tutulmuştur.</i></p>
-                `;
-                DOM.maas.alan.classList.remove('hidden');
-            } catch (e) { DOM.maas.alan.classList.add('hidden'); }
-        }
-
-        function calcSmm() {
-            try {
-                const tutar = num(DOM.smm.t.value);
-                if(tutar <= 0) return DOM.smm.alan.classList.add('hidden');
-
-                const yon = DOM.smm.y.value;
-                const stopajOran = num(DOM.smm.s.value) / 100;
-                const kdvOran = num(DOM.smm.k.value) / 100;
-
-                let brut, net, stopaj, kdv;
-
-                if(yon === 'brut') {
-                    brut = tutar;
-                    stopaj = brut * stopajOran;
-                    kdv = brut * kdvOran;
-                    net = brut - stopaj + kdv;
-                } else {
-                    brut = tutar / (1 - stopajOran + kdvOran);
-                    stopaj = brut * stopajOran;
-                    kdv = brut * kdvOran;
-                    net = tutar;
-                }
-
-                DOM.smm.resBrut.innerText = fmt.format(brut);
-                DOM.smm.resStopaj.innerText = "-" + fmt.format(stopaj);
-                DOM.smm.resKdv.innerText = "+" + fmt.format(kdv);
-                DOM.smm.resNet.innerText = fmt.format(net);
-
-                DOM.smm.exp.innerHTML = `
-                    <p>📄 <b>Makbuz Yönü:</b> ${yon === 'brut' ? 'Brüt tutar baz alınarak kesintiler uygulandı.' : 'Müşteriden tahsil edilecek net tutardan brüt ücrete çıkıldı.'}</p>
-                    <p>⚖️ <b>Kesinti:</b> Brüt ücret üzerinden %${stopajOran * 100} Stopaj (Gelir Vergisi) kaynağında kesildi.</p>
-                `;
-                DOM.smm.alan.classList.remove('hidden');
-            } catch (e) { DOM.smm.alan.classList.add('hidden'); }
-        }
-
-        function calcKdv() {
-            try {
-                const tutar = num(DOM.kdv.t.value);
-                if(tutar <= 0) return DOM.kdv.alan.classList.add('hidden');
-
-                const oran = num(DOM.kdv.o.value) / 100;
-                const tevRate = num(DOM.kdv.tev.value);
-                
-                let tip = 'haric';
-                DOM.kdv.tip.forEach(r => { if(r.checked) tip = r.value; });
-
-                let kdvHaricBase = tip === 'haric' ? tutar : tutar / (1 + oran);
-                let kdvMiktari = kdvHaricBase * oran;
-                let kesinti = kdvMiktari * tevRate;
-                let tahsilat = kdvHaricBase + (kdvMiktari - kesinti);
-                let fTop = kdvHaricBase + kdvMiktari;
-
-                DOM.kdv.resKdv.innerText = fmt.format(kdvMiktari);
-                DOM.kdv.resTev.innerText = fmt.format(kesinti);
-                DOM.kdv.resTahsil.innerText = fmt.format(tahsilat);
-                DOM.kdv.resTop.innerText = fmt.format(fTop);
-
-                DOM.kdv.exp.innerHTML = `
-                    <p>🧾 <b>Matrah (KDV Hariç):</b> ${fmt.format(kdvHaricBase)}</p>
-                    <p>✂️ <b>Tevkifat Tutarı:</b> Toplam KDV'nin ${tevRate * 10}/10'u stopaj olarak hesaplandı.</p>
-                `;
-                DOM.kdv.alan.classList.remove('hidden');
-            } catch (e) { DOM.kdv.alan.classList.add('hidden'); }
-        }
-
-        function calcEco() {
-            try {
-                const s = num(DOM.eco.s.value);
-                if(s <= 0) return DOM.eco.alan.classList.add('hidden');
-                const m = num(DOM.eco.m.value), k = num(DOM.eco.k.value), kg = num(DOM.eco.kg.value);
-
-                const kom = s * (k / 100);
-                const gider = m + kom + kg;
-                const kar = s - gider;
-
-                DOM.eco.resNet.innerText = fmt.format(kar);
-                
-                DOM.eco.alan.className = `mt-6 p-6 rounded-2xl text-center border transition-all ${kar < 0 ? 'bg-red-50 border-red-200 text-red-900' : 'bg-indigo-50 border-indigo-200 text-indigo-900'}`;
-                
-                DOM.eco.exp.innerHTML = `
-                    <p>📦 Ürün Maliyeti: ${fmt.format(m)} | 🏷️ Komisyon: ${fmt.format(kom)} | 🚚 Kargo: ${fmt.format(kg)}</p>
-                    <p class="mt-2 font-bold ${kar < 0 ? 'text-red-600' : 'text-emerald-600'}">Kâr Marjı: %${((kar / s) * 100).toFixed(1)}</p>
-                `;
-            } catch(e) { DOM.eco.alan.classList.add('hidden'); }
-        }
-
-        function calcVergi() {
-            try {
-                const gel = num(DOM.vergi.gel.value);
-                if(gel <= 0) return DOM.vergi.alan.classList.add('hidden');
-                
-                let matrah = Math.max(0, gel - num(DOM.vergi.gid.value));
-                if(DOM.vergi.genc.checked) matrah = Math.max(0, matrah - 300000); 
-
-                let vergi = 0;
-                let calcMatrah = matrah;
-
-                if (calcMatrah > 580000) { vergi += (calcMatrah - 580000) * 0.35; calcMatrah = 580000; }
-                if (calcMatrah > 230000) { vergi += (calcMatrah - 230000) * 0.27; calcMatrah = 230000; }
-                if (calcMatrah > 110000) { vergi += (calcMatrah - 110000) * 0.20; calcMatrah = 110000; }
-                if (calcMatrah > 0) { vergi += calcMatrah * 0.15; }
-
-                DOM.vergi.resVergi.innerText = fmt.format(vergi);
-                
-                DOM.vergi.exp.innerHTML = `
-                    <p>📊 <b>Safi Ticari Kazanç (Matrah):</b> ${fmt.format(matrah)}</p>
-                    <p>📈 <b>Vergilendirme Yöntemi:</b> Artan oranlı (Progressive) vergi dilimleri (%15, %20, %27, %35) kullanıldı.</p>
-                `;
-                DOM.vergi.alan.classList.remove('hidden');
-            } catch(e) { DOM.vergi.alan.classList.add('hidden'); }
-        }
-
-        // --- LGS SİSTEMİ ---
-        const dersler = [
-            { id: 'tr', ad: 'Türkçe', k: 4 }, { id: 'mat', ad: 'Matematik', k: 4 }, { id: 'fen', ad: 'Fen Bil.', k: 4 },
-            { id: 'ink', ad: 'İnkılap', k: 1 }, { id: 'din', ad: 'Din K.', k: 1 }, { id: 'ing', ad: 'İngilizce', k: 1 }
-        ];
-
-        function initLGS() {
-            const c = document.getElementById('lgs-dersler-container');
-            c.innerHTML = dersler.map(d => `
-                <div class="grid grid-cols-4 gap-2 items-center bg-slate-50 p-2 rounded-xl border mt-2">
-                    <span class="text-xs font-bold text-slate-700">${d.ad} (x${d.k})</span>
-                    <input type="number" id="${d.id}D" class="w-full border rounded p-1 text-center text-sm react-input" placeholder="0">
-                    <input type="number" id="${d.id}Y" class="w-full border rounded p-1 text-center text-sm react-input" placeholder="0">
-                    <span id="${d.id}N" class="text-center font-black text-blue-600">0.0</span>
-                </div>
-            `).join('');
-            
-            bindReactivity(); 
-        }
-
-        function calcLGS() {
-            let totalPuan = 194.7; 
-            let isAnyFilled = false;
-
-            dersler.forEach(d => {
-                const dogru = num(document.getElementById(`${d.id}D`).value);
-                const yanlis = num(document.getElementById(`${d.id}Y`).value);
-                if(dogru > 0 || yanlis > 0) isAnyFilled = true;
-
-                const net = Math.max(0, dogru - (yanlis / 3));
-                document.getElementById(`${d.id}N`).innerText = net.toFixed(2);
-                totalPuan += (net * d.k * 1.05); 
-            });
-
-            if(!isAnyFilled) return document.getElementById('lgs-sonuc-alan').classList.add('hidden');
-
-            document.getElementById('lgs-val').innerText = Math.min(500, totalPuan).toFixed(3);
-            document.getElementById('lgs-explain').innerHTML = `<p>🧠 Toplam Netlere göre <b>Taban Puan + Katsayı Skoru</b> formülü ile öngörülmüştür.</p>`;
-            document.getElementById('lgs-sonuc-alan').classList.remove('hidden');
-        }
-
-        // --- GLOBAL REACTIVITY KÖPRÜSÜ (GÜNCELLENDİ) ---
-        function triggerAllCalculations() {
-            calcTazminat(); calcMaas(); calcSmm(); calcKdv(); calcEco(); calcVergi(); calcLGS();
-        }
-
-        function bindReactivity() {
-            document.querySelectorAll('.react-input').forEach(input => {
-                input.removeEventListener('input', handleInputEvent);
-                input.addEventListener('input', handleInputEvent);
-            });
-        }
-
-        function handleInputEvent() {
-            triggerAllCalculations();
-            saveState();
-        }
-
-        // --- SENARYO SİMÜLASYONU (+%10 Maaş Butonu) ---
-        DOM.tazminat.btnSim.addEventListener('click', () => {
-            if(!DOM.tazminat.m.value) return;
-            const current = num(DOM.tazminat.m.value);
-            DOM.tazminat.m.value = Math.floor(current * 1.10);
-            calcTazminat(); saveState();
-        });
-
-        // --- İNİTİYALİZASYON ---
-        document.addEventListener('DOMContentLoaded', () => {
-            initLGS(); 
-            loadState(); 
-        });
-
-    </script>
 </body>
 </html>

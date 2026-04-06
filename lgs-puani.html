@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2026 LGS Puan Hesaplama ve Net Sihirbazı | Yasalmetre</title>
+    <meta name="description" content="MEB güncel katsayılarına göre LGS puanınızı hesaplayın. 3 yanlışın 1 doğruyu götürdüğü sistemde netlerinizi ve tahmini puanınızı öğrenin.">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2476803296366519" crossorigin="anonymous"></script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .explain-box { @apply mt-4 p-4 bg-slate-100 border-l-4 border-blue-500 rounded-r-xl text-xs text-slate-700 font-medium space-y-1; }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-900 font-sans min-h-screen flex flex-col">
+
+    <header class="bg-blue-900 text-white p-5 shadow-lg border-b-4 border-blue-700">
+        <div class="max-w-4xl mx-auto flex flex-col md:flex-row justify-between items-center gap-3">
+            <a href="index.html" class="text-3xl font-black italic tracking-tighter hover:opacity-80 transition">YASALMETRE<span class="text-blue-400">.COM</span></a>
+            <span class="text-[10px] font-bold bg-emerald-600 px-4 py-1.5 rounded-full shadow-inner tracking-widest">2026 GÜNCEL</span>
+        </div>
+    </header>
+
+    <main class="max-w-4xl mx-auto p-4 mt-6 w-full flex-grow">
+
+        <div class="w-full flex justify-center items-center bg-slate-50 border border-slate-300 border-dashed rounded-2xl overflow-hidden min-h-[100px] relative text-center mb-6">
+            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-2476803296366519" data-ad-slot="5047125389" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <div class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200">
+            <h1 class="text-xl font-bold text-center text-blue-900 mb-2">LGS Puan Hesaplama</h1>
+            <div class="text-[10px] text-center text-slate-500 mb-6 uppercase font-bold bg-slate-100 py-1 rounded">MEB Katsayı Tahmini Formülü</div>
+            
+            <div class="space-y-2" id="form-lgs">
+                <div class="grid grid-cols-4 gap-2 px-2 text-[10px] font-black text-slate-400 text-center">
+                    <div class="text-left">DERS</div><div>DOĞRU</div><div>YANLIŞ</div><div>NET</div>
+                </div>
+                <div id="lgs-dersler-container"></div>
+                <button type="button" onclick="calcLGS()" class="w-full bg-blue-600 text-white font-black py-4 rounded-2xl shadow-lg mt-4 uppercase active:scale-95 transition-transform">PUANIMI HESAPLA</button>
+            </div>
+
+            <div id="lgs-sonuc-alan" class="hidden mt-6 text-center bg-blue-50 p-6 rounded-3xl border border-blue-100">
+                <span class="text-[10px] font-black uppercase text-blue-600">Tahmini LGS Puanı</span>
+                <p id="lgs-val" class="text-5xl font-black text-blue-900 mt-2">0.000</p>
+                <div id="lgs-explain" class="mt-4 text-[10px] text-slate-600 font-medium space-y-1"></div>
+            </div>
+        </div>
+
+        <div class="w-full flex justify-center items-center bg-slate-50 border border-slate-300 border-dashed rounded-2xl overflow-hidden min-h-[100px] relative text-center my-6">
+            <ins class="adsbygoogle" style="display:block; width:100%;" data-ad-client="ca-pub-2476803296366519" data-ad-slot="2114877696" data-ad-format="auto" data-full-width-responsive="true"></ins>
+            <script>(adsbygoogle = window.adsbygoogle || []).push({});</script>
+        </div>
+
+        <article class="bg-white p-6 md:p-8 rounded-3xl shadow-sm border border-slate-200 text-slate-700 text-sm leading-relaxed">
+            <h2 class="text-lg font-bold text-blue-900 mb-3">LGS Puanı Nasıl Hesaplanır?</h2>
+            <p class="mb-3">LGS (Liselere Geçiş Sistemi) hesaplamasında her dersin farklı bir ağırlık katsayısı bulunur. Türkçe, Matematik ve Fen Bilimleri (katsayıları 4) sınavın bel kemiğini oluştururken; T.C. İnkılap Tarihi, Din Kültürü ve Yabancı Dil (katsayıları 1) dersleri de puanınızı doğrudan etkiler.</p>
+            <p>Milli Eğitim Bakanlığı kuralı gereği <strong>3 yanlış 1 doğruyu götürür.</strong> Sistem öncelikle net sayınızı bulur, ardından bu netleri standart sapma ve Türkiye geneli ortalamalara dayalı tahmini bir katsayı ile çarparak merkezi yerleştirme (taban+katsayı) puanınızı oluşturur.</p>
+        </article>
+
+    </main>
+
+    <footer class="bg-white border-t border-slate-200 mt-auto py-8 text-center">
+        <div class="max-w-4xl mx-auto px-6">
+            <nav class="flex justify-center gap-8 text-[10px] font-black text-slate-600 mb-6 uppercase tracking-widest">
+                <a href="hakkimizda.html" class="hover:text-blue-600 transition">Hakkımızda</a>
+                <a href="gizlilik-politikasi.html" class="hover:text-blue-600 transition">Gizlilik Politikası</a>
+                <a href="iletisim.html" class="hover:text-blue-600 transition">İletişim</a>
+            </nav>
+            <p class="text-[10px] text-slate-400 font-bold uppercase tracking-widest">&copy; 2026 Yasalmetre.com - Tüm Hakları Saklıdır.</p>
+        </div>
+    </footer>
+
+    <script src="app.js"></script>
+</body>
+</html>
